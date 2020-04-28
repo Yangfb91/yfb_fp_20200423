@@ -28,7 +28,7 @@ namespace TowerDefense.UI.HUD
 				TowerSpawnButton button = Instantiate(towerSpawnButton, transform);
 				button.InitializeButton(tower);
 				button.buttonTapped += OnButtonTapped;
-				button.draggedOff += OnButtonDraggedOff;
+				//button.draggedOff += OnButtonDraggedOff;
 			}
 		}
 
@@ -38,25 +38,25 @@ namespace TowerDefense.UI.HUD
 		/// <param name="towerData"></param>
 		void OnButtonTapped(Tower towerData)
 		{
-			var gameUI = GameUI.instance;
-			if (gameUI.isBuilding)
-			{
-				gameUI.CancelGhostPlacement();
-			}
+			var gameUI = GameUIYfb.instance;
+			//if (gameUI.isBuilding)
+			//{
+			//	//gameUI.CancelGhostPlacement();
+			//}
 			gameUI.SetToBuildMode(towerData);
 		}
 
-		/// <summary>
-		/// Sets the GameUI to build mode with the <see cref="towerData"/> 
-		/// </summary>
-		/// <param name="towerData"></param>
-		void OnButtonDraggedOff(Tower towerData)
-		{
-			if (!GameUI.instance.isBuilding)
-			{
-				GameUI.instance.SetToDragMode(towerData);
-			}
-		}
+		///// <summary>
+		///// Sets the GameUI to build mode with the <see cref="towerData"/> 
+		///// </summary>
+		///// <param name="towerData"></param>
+		//void OnButtonDraggedOff(Tower towerData)
+		//{
+		//	if (!GameUI.instance.isBuilding)
+		//	{
+		//		GameUI.instance.SetToDragMode(towerData);
+		//	}
+		//}
 
 		/// <summary>
 		/// Unsubscribes from all the tower spawn buttons
@@ -68,7 +68,7 @@ namespace TowerDefense.UI.HUD
 			foreach (TowerSpawnButton towerButton in childButtons)
 			{
 				towerButton.buttonTapped -= OnButtonTapped;
-				towerButton.draggedOff -= OnButtonDraggedOff;
+				//towerButton.draggedOff -= OnButtonDraggedOff;
 			}
 		}
 

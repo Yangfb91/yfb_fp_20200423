@@ -280,6 +280,7 @@ namespace TowerDefense.UI.HUD
 			state = newState;
 			if (stateChanged != null)
 			{
+				Debug.Log("statechanged!");
 				stateChanged(oldState, state);
 			}
 		}
@@ -968,7 +969,8 @@ namespace TowerDefense.UI.HUD
 
 			// Raycast onto placement area layer
 			RaycastHit hit;
-			if (Physics.Raycast(pointer.ray, out hit, float.MaxValue, placementAreaMask))
+			if (Physics.Raycast(pointer.ray, out hit, float.MaxValue,
+				placementAreaMask))
 			{
 				pointer.raycast = hit;
 			}

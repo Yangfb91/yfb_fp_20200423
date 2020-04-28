@@ -249,6 +249,7 @@ namespace TowerDefense.Input
 				}
 				else if (m_GameUI.state == State.Building && !touchInfo.startedOverUI)
 				{
+					Debug.Log("OnTap");
 					m_GameUI.TryMoveGhost(touchInfo, false);
 					if (m_GameUI.IsGhostAtValidPosition() && m_GameUI.IsValidPurchase())
 					{
@@ -355,7 +356,8 @@ namespace TowerDefense.Input
 		
 
 		/// <summary>
-		/// If the new state is <see cref="GameUI.State.Building"/> then move the ghost to the center of the screen
+		/// If the new state is <see cref="GameUI.State.Building"/> 
+		/// then move the ghost to the center of the screen
 		/// </summary>
 		/// <param name="previousState">
 		/// The previous the GameUI was is in
@@ -374,6 +376,7 @@ namespace TowerDefense.Input
 			}
 			if (currentState == State.Building && previousState != State.BuildingWithDrag)
 			{
+				Debug.Log("OnStateChanged");
 				m_GameUI.MoveGhostToCenter();
 				confirmationButtons.canvasEnabled = false;
 				invalidButtons.canvasEnabled = false;

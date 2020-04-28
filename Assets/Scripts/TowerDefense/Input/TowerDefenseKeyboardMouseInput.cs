@@ -128,6 +128,7 @@ namespace TowerDefense.Input
 
 			if ((mouseInfo != null) && (m_GameUI.isBuilding))
 			{
+				Debug.Log("OnMouseMoved");
 				m_GameUI.TryMoveGhost(pointer, false);
 			}
 		}
@@ -140,12 +141,14 @@ namespace TowerDefense.Input
 			// We only respond to mouse info
 			var mouseInfo = pointer as MouseButtonInfo;
 
+
 			if (mouseInfo != null && !mouseInfo.startedOverUI)
 			{
 				if (m_GameUI.isBuilding)
 				{
 					if (mouseInfo.mouseButtonId == 0) // LMB confirms
 					{
+						Debug.Log("OnTap2");
 						m_GameUI.TryPlaceTower(pointer);
 					}
 					else // RMB cancels
@@ -161,6 +164,10 @@ namespace TowerDefense.Input
 						m_GameUI.TrySelectTower(pointer);
 					}
 				}
+			}
+			else
+			{
+				Debug.Log("OnTap1");
 			}
 		}
 	}

@@ -254,6 +254,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildSidebarYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\CurrencyUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\GameUI.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\GameUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\PlacementTile.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\PlayerBaseHealth.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerDefenseMainMenu.cs" />
