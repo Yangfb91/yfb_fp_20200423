@@ -28,6 +28,7 @@ namespace Core.Data
 
 		public static string GetFinalSaveFilename(string baseFilename)
 		{
+			//Debug.Log("yfb路径："+ string.Format("{0}/{1}", Application.persistentDataPath, baseFilename));
 			return string.Format("{0}/{1}", Application.persistentDataPath, baseFilename);
 		}
 

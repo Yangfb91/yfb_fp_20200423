@@ -14,6 +14,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The text element to display information on
 		/// </summary>
+		
 		public Text display;
 
 		/// <summary>

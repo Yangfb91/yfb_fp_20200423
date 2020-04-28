@@ -188,6 +188,7 @@
     <Compile Include="Assets\Scripts\Core\Utilities\TimedBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Utilities\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\Utilities\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\LevelManagerYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\Affector.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\AttackAffector.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\CurrencyAffector.cs" />
@@ -250,6 +251,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\ExitButton.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildInfoUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildSidebar.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildSidebarYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\CurrencyUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\GameUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\PlacementTile.cs" />
