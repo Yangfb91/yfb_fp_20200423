@@ -211,6 +211,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Game\LevelSaveData.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Input\TowerDefenseKeyboardMouseInput.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\Input\TowerDefenseKeyboardMouseInputYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Input\TowerDefenseTouchInput.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\LevelIntro.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\LevelManager.cs" />

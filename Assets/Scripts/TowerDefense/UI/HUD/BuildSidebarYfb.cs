@@ -39,10 +39,10 @@ namespace TowerDefense.UI.HUD
 		void OnButtonTapped(Tower towerData)
 		{
 			var gameUI = GameUIYfb.instance;
-			//if (gameUI.isBuilding)
-			//{
-			//	//gameUI.CancelGhostPlacement();
-			//}
+			if (gameUI.isBuilding)
+			{
+				gameUI.CancelGhostPlacement();
+			}
 			gameUI.SetToBuildMode(towerData);
 		}
 

@@ -14,7 +14,8 @@ namespace TowerDefense.Towers.Placement
 		Transform transform { get; }
 
 		/// <summary>
-		/// Calculates the grid position from a given world position, offset to center for a specific size object
+		/// Calculates the grid position from a given world position, 
+		/// offset to center for a specific size object
 		/// </summary>
 		IntVector2 WorldToGrid(Vector3 worldPosition, IntVector2 sizeOffset);
 
@@ -24,7 +25,8 @@ namespace TowerDefense.Towers.Placement
 		Vector3 GridToWorld(IntVector2 gridPosition, IntVector2 sizeOffset);
 
 		/// <summary>
-		/// Gets whether an object of a given size would fit on this grid at the given location
+		/// Gets whether an object of a given size would fit on this grid 
+		/// at the given location
 		/// </summary>
 		/// <param name="gridPos">The grid location</param>
 		/// <param name="size">The size of the item</param>

@@ -7,7 +7,8 @@ namespace TowerDefense.Towers.Placement
 {
 	/// <summary>
 	/// A tower placement location made from a grid.
-	/// Its origin is centered in the middle of the lower-right cell. It can be oriented in any direction
+	/// Its origin is centered in the middle of the lower-right cell. 
+	/// It can be oriented in any direction
 	/// </summary>
 	[RequireComponent(typeof(BoxCollider))]
 	public class TowerPlacementGrid : MonoBehaviour, IPlacementArea
@@ -231,7 +232,8 @@ namespace TowerDefense.Towers.Placement
 		}
 
 		/// <summary>
-		/// Instantiates Tile Objects to visualise the grid and sets up the <see cref="m_AvailableCells" />
+		/// Instantiates Tile Objects to visualise the grid and
+		/// sets up the <see cref="m_AvailableCells" />
 		/// </summary>
 		protected void SetUpGrid()
 		{		

@@ -148,7 +148,6 @@ namespace TowerDefense.Input
 				{
 					if (mouseInfo.mouseButtonId == 0) // LMB confirms
 					{
-						Debug.Log("OnTap2");
 						m_GameUI.TryPlaceTower(pointer);
 					}
 					else // RMB cancels
@@ -164,10 +163,6 @@ namespace TowerDefense.Input
 						m_GameUI.TrySelectTower(pointer);
 					}
 				}
-			}
-			else
-			{
-				Debug.Log("OnTap1");
 			}
 		}
 	}
