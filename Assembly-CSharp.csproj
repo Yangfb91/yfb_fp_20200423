@@ -188,7 +188,6 @@
     <Compile Include="Assets\Scripts\Core\Utilities\TimedBehaviour.cs" />
     <Compile Include="Assets\Scripts\Core\Utilities\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\Utilities\VectorHelper.cs" />
-    <Compile Include="Assets\Scripts\LevelManagerYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\Affector.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\AttackAffector.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Affectors\CurrencyAffector.cs" />
@@ -215,6 +214,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\Input\TowerDefenseTouchInput.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\LevelIntro.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\Level\LevelManagerYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\LevelState.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\PlayerHomeBase.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Level\SpawnInstruction.cs" />
@@ -254,6 +254,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildSidebar.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildSidebarYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\CurrencyUI.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\CurrencyUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\GameUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\GameUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\PlacementTile.cs" />

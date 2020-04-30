@@ -230,6 +230,22 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
+		/// Attempt to position a tower at the given location
+		/// </summary>
+		/// <param name="pointerInfo">The pointer we're using to position the tower</param>
+		public void TryPlaceTower(PointerInfo pointerInfo)
+		{
+			UIPointer pointer = WrapPointer(pointerInfo);
+
+			// Do nothing if we're over UI
+			if (pointer.overUI)
+			{
+				return;
+			}
+			BuyTower(pointer);
+		}
+
+		/// <summary>
 		/// Position the ghost tower at the given pointer
 		/// </summary>
 		/// <param name="pointerInfo">
@@ -259,6 +275,42 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
+		/// Used to buy the tower during the build phase
+		/// Checks currency and calls <see cref="PlaceGhost" />
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception when not in a build mode or when tower is not a valid position
+		/// </exception>
+		/// </summary>
+		public void BuyTower(UIPointer pointer)
+		{
+			if (!isBuilding)
+			{
+				throw new InvalidOperationException(
+					"Trying to buy towers when not in a Build Mode");
+			}
+			
+			if (m_CurrentTower == null || !IsGhostAtValidPosition())
+			{
+				return;
+			}
+
+			PlacementAreaRaycast(ref pointer);
+
+			if (!pointer.raycast.HasValue || pointer.raycast.Value.collider == null)
+			{
+				CancelGhostPlacement();
+				return;
+			}
+
+			//int cost = m_CurrentTower.controller.purchaseCost;
+			//bool successfulPurchase = LevelManager.instance.currency.TryPurchase(cost);
+			//if (successfulPurchase)
+			//{
+				PlaceGhost(pointer);
+			//}
+		}
+
+		/// <summary>
 		/// Deselect the current tower and hides the UI
 		/// </summary>
 		public void DeselectTower()
@@ -279,6 +331,35 @@ namespace TowerDefense.UI.HUD
 			{
 				selectionChanged(null);
 			}
+		}
+
+		/// <summary>
+		/// Checks the position of the <see cref="m_CurrentTower"/> 
+		/// on the <see cref="m_CurrentArea"/>
+		/// </summary>
+		/// <returns>
+		/// True if the placement is valid
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception if the check is done in <see cref="State.Normal"/> state
+		/// </exception>
+		public bool IsGhostAtValidPosition()
+		{
+			if (!isBuilding)
+			{
+				throw new InvalidOperationException(
+					"Trying to check ghost position when not in a build mode");
+			}
+			if (m_CurrentTower == null)
+			{
+				return false;
+			}
+			if (m_CurrentArea == null)
+			{
+				return false;
+			}
+			TowerFitStatus fits = m_CurrentArea.Fits(m_GridPosition, m_CurrentTower.controller.dimensions);
+			return fits == TowerFitStatus.Fits;
 		}
 
 		/// <summary>
@@ -450,6 +531,42 @@ namespace TowerDefense.UI.HUD
 			else
 			{
 				m_CurrentTower.Hide();
+			}
+		}
+
+		/// <summary>
+		/// Place the ghost at the pointer's position
+		/// </summary>
+		/// <param name="pointer">The pointer to place the ghost at</param>
+		/// <exception cref="InvalidOperationException">
+		/// If we're not in the correct state
+		/// </exception>
+		protected void PlaceGhost(UIPointer pointer)
+		{
+			if (m_CurrentTower == null || !isBuilding)
+			{
+				throw new InvalidOperationException(
+					"Trying to position a tower ghost while " +
+	 "				the UI is not currently in a building state.");
+			}
+
+			MoveGhost(pointer);
+
+			if (m_CurrentArea != null)
+			{
+				TowerFitStatus fits = m_CurrentArea.Fits(
+					m_GridPosition, m_CurrentTower.controller.dimensions);
+
+				if (fits == TowerFitStatus.Fits)
+				{
+					// Place the ghost
+					Tower controller = m_CurrentTower.controller;
+
+					Tower createdTower = Instantiate(controller);
+					createdTower.Initialize(m_CurrentArea, m_GridPosition);
+
+					CancelGhostPlacement();
+				}
 			}
 		}
 

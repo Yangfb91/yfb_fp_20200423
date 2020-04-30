@@ -104,7 +104,8 @@ namespace TowerDefense.Level
 		public event Action levelFailed;
 
 		/// <summary>
-		/// Fired when the level state is changed - first parameter is the old state, second parameter is the new state
+		/// Fired when the level state is changed 
+		/// - first parameter is the old state, second parameter is the new state
 		/// </summary>
 		public event Action<LevelState, LevelState> levelStateChanged;
 

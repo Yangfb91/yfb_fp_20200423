@@ -83,7 +83,7 @@ namespace TowerDefense.Input
 				{
 					if (mouseInfo.mouseButtonId == 0) // LMB confirms
 					{
-						//m_GameUI.TryPlaceTower(pointer);
+						m_GameUI.TryPlaceTower(pointer);
 					}
 					else // RMB cancels
 					{

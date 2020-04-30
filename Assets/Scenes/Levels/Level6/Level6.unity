@@ -1012,7 +1012,8 @@ PrefabInstance:
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114959624788336380, guid: 80da3f8dc23874ebc825599fe17540e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80da3f8dc23874ebc825599fe17540e7, type: 3}
 --- !u!224 &1300168134 stripped
 RectTransform:
@@ -1020,6 +1021,38 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1300168133}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1300168135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114878565459058572, guid: 80da3f8dc23874ebc825599fe17540e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1300168133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1300168136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592360052515304, guid: 80da3f8dc23874ebc825599fe17540e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1300168133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1300168137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300168136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171ad7498c586ff4790f1f680895f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 1300168135}
+  currencySymbol: $
 --- !u!1 &1410166799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,6 +1863,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerLibrary: {fileID: 11400000, guid: 903debecd58cf41dba3386585d538e1c, type: 2}
+  startingCurrency: 100
+  currencyGainer:
+    constantCurrencyAddition: 0
+    constantCurrencyGainRate: 0
 --- !u!1 &1935581014
 GameObject:
   m_ObjectHideFlags: 0
