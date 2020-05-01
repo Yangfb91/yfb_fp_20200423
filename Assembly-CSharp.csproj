@@ -263,7 +263,9 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerPlacementGhost.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerSpawnButton.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerSpawnButtonYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerUI.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\WaveUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\IntervalParticleSystemPlayer.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\LevelSelectButton.cs" />

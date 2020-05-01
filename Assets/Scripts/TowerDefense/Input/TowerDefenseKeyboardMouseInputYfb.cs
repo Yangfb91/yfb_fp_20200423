@@ -95,7 +95,7 @@ namespace TowerDefense.Input
 					if (mouseInfo.mouseButtonId == 0)
 					{
 						// select towers
-						//m_GameUI.TrySelectTower(pointer);
+						m_GameUI.TrySelectTower(pointer);
 					}
 				}
 			}

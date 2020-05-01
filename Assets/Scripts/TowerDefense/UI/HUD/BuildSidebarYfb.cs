@@ -12,7 +12,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The prefab spawned for each button
 		/// </summary>
-		public TowerSpawnButton towerSpawnButton;
+		public TowerSpawnButtonYfb towerSpawnButton;
 
 		/// <summary>
 		/// Initialize the tower spawn buttons
@@ -25,7 +25,7 @@ namespace TowerDefense.UI.HUD
 			}
 			foreach (Tower tower in LevelManagerYfb.instance.towerLibrary)
 			{
-				TowerSpawnButton button = Instantiate(towerSpawnButton, transform);
+				TowerSpawnButtonYfb button = Instantiate(towerSpawnButton, transform);
 				button.InitializeButton(tower);
 				button.buttonTapped += OnButtonTapped;
 				//button.draggedOff += OnButtonDraggedOff;
@@ -63,9 +63,9 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		void OnDestroy()
 		{
-			TowerSpawnButton[] childButtons = GetComponentsInChildren<TowerSpawnButton>();
+			TowerSpawnButtonYfb[] childButtons = GetComponentsInChildren<TowerSpawnButtonYfb>();
 
-			foreach (TowerSpawnButton towerButton in childButtons)
+			foreach (TowerSpawnButtonYfb towerButton in childButtons)
 			{
 				towerButton.buttonTapped -= OnButtonTapped;
 				//towerButton.draggedOff -= OnButtonDraggedOff;

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using Core.Utilities;
 using Core.Input;
 using Core.Health;
+using TowerDefense.Level;
 using TowerDefense.Towers;
 using TowerDefense.Towers.Placement;
 
@@ -93,6 +94,11 @@ namespace TowerDefense.UI.HUD
 		public LayerMask placementAreaMask;
 
 		/// <summary>
+		/// The layer for tower selection
+		/// </summary>
+		public LayerMask towerSelectionLayer;
+
+		/// <summary>
 		/// The physics layer for moving the ghost around the world
 		/// when the placement is not valid
 		/// </summary>
@@ -102,6 +108,11 @@ namespace TowerDefense.UI.HUD
 		/// The radius of the sphere cast for checking ghost placement
 		/// </summary>
 		public float sphereCastRadius = 1;
+
+		/// <summary>
+		/// The UI controller for displaying individual tower data
+		/// </summary>
+		public TowerUIYfb towerUI;
 
 		/// <summary>
 		/// Fires when the <see cref="State"/> changes
@@ -275,6 +286,69 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
+		/// Activates the tower controller UI with the specific information
+		/// </summary>
+		/// <param name="tower">
+		/// The tower controller information to use
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
+		/// </exception>
+		public void SelectTower(Tower tower)
+		{
+			if (state != State.Normal)
+			{
+				throw new InvalidOperationException(
+					"Trying to select whilst not in a normal state");
+			}
+			DeselectTower();
+			currentSelectedTower = tower;
+			if (currentSelectedTower != null)
+			{
+				currentSelectedTower.removed += OnTowerDied;
+			}
+			//radiusVisualizerController.SetupRadiusVisualizers(tower);
+
+			if (selectionChanged != null)
+			{
+				selectionChanged(tower);
+			}
+		}
+
+		/// <summary>
+		/// Upgrades <see cref="currentSelectedTower" />, if possible
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
+		/// or <see cref="currentSelectedTower" /> is null
+		/// </exception>
+		public void UpgradeSelectedTower()
+		{
+			if (state != State.Normal)
+			{
+				throw new InvalidOperationException(
+					"Trying to upgrade whilst not in Normal state");
+			}
+			if (currentSelectedTower == null)
+			{
+				throw new InvalidOperationException(
+					"Selected Tower is null");
+			}
+			if (currentSelectedTower.isAtMaxLevel)
+			{
+				return;
+			}
+			int upgradeCost = currentSelectedTower.GetCostForNextLevel();
+			bool successfulUpgrade = LevelManagerYfb.instance.currency.TryPurchase(upgradeCost);
+			if (successfulUpgrade)
+			{
+				currentSelectedTower.UpgradeTower();
+			}
+			towerUI.Hide();
+			DeselectTower();
+		}
+
+		/// <summary>
 		/// Used to buy the tower during the build phase
 		/// Checks currency and calls <see cref="PlaceGhost" />
 		/// <exception cref="InvalidOperationException">
@@ -302,12 +376,12 @@ namespace TowerDefense.UI.HUD
 				return;
 			}
 
-			//int cost = m_CurrentTower.controller.purchaseCost;
-			//bool successfulPurchase = LevelManager.instance.currency.TryPurchase(cost);
-			//if (successfulPurchase)
-			//{
+			int cost = m_CurrentTower.controller.purchaseCost;
+			bool successfulPurchase = LevelManagerYfb.instance.currency.TryPurchase(cost);
+			if (successfulPurchase)
+			{
 				PlaceGhost(pointer);
-			//}
+			}
 		}
 
 		/// <summary>
@@ -363,6 +437,70 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
+		/// Checks if buying the ghost tower is possible
+		/// </summary>
+		/// <returns>
+		/// True if can purchase
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception if not in Build Mode or Build With Dragging mode
+		/// </exception>
+		public bool IsValidPurchase()
+		{
+			if (!isBuilding)
+			{
+				throw new InvalidOperationException(
+					"Trying to check ghost position when not in a build mode");
+			}
+			if (m_CurrentTower == null)
+			{
+				return false;
+			}
+			if (m_CurrentArea == null)
+			{
+				return false;
+			}
+			return LevelManagerYfb.instance.currency.CanAfford(
+				m_CurrentTower.controller.purchaseCost);
+		}
+
+		/// <summary>
+		/// Selects a tower beneath the given pointer if there is one
+		/// </summary>
+		/// <param name="info">
+		/// The pointer information concerning the selector of the pointer
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Throws an exception when not in <see cref="State.Normal"/>
+		/// </exception>
+		public void TrySelectTower(PointerInfo info)
+		{
+			if (state != State.Normal)
+			{
+				throw new InvalidOperationException(
+					"Trying to select towers outside of Normal state");
+			}
+			UIPointer uiPointer = WrapPointer(info);
+			RaycastHit output;
+			bool hasHit = Physics.Raycast(uiPointer.ray, 
+				                          out output, 
+										  float.MaxValue, 
+										  towerSelectionLayer);
+			
+			if (!hasHit || uiPointer.overUI)
+			{
+				return;
+			}
+			
+			var controller = output.collider.GetComponent<Tower>();
+			
+			if (controller != null)
+			{
+				SelectTower(controller);
+			}
+		}
+
+		/// <summary>
 		/// Set initial values, cache attached components
 		/// and configure the controls
 		/// </summary>
@@ -382,6 +520,28 @@ namespace TowerDefense.UI.HUD
 			base.OnDestroy();
 			Time.timeScale = 1f;
 		}
+
+		/// <summary>
+		/// Subscribe to the level manager
+		/// </summary>
+		//protected virtual void OnEnable()
+		//{
+		//	if (LevelManager.instanceExists)
+		//	{
+		//		LevelManager.instance.currency.currencyChanged += OnCurrencyChanged;
+		//	}
+		//}
+
+		/// <summary>
+		/// Unsubscribe from the level manager
+		/// </summary>
+		//protected virtual void OnDisable()
+		//{
+		//	if (LevelManager.instanceExists)
+		//	{
+		//		LevelManager.instance.currency.currencyChanged -= OnCurrencyChanged;
+		//	}
+		//}
 
 		/// <summary>
 		/// Creates a new UIPointer holding data object
@@ -499,7 +659,7 @@ namespace TowerDefense.UI.HUD
 				m_GridPosition, m_CurrentTower.controller.dimensions);
 
 			m_CurrentTower.Show();
-			m_GhostPlacementPossible = fits == TowerFitStatus.Fits /*&& IsValidPurchase()*/;
+			m_GhostPlacementPossible = fits == TowerFitStatus.Fits && IsValidPurchase();
 
 			m_CurrentTower.Move(
 				m_CurrentArea.GridToWorld(m_GridPosition, m_CurrentTower.controller.dimensions),
@@ -594,6 +754,32 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
+		/// Modifies the valid rendering of the ghost tower once there is enough currency
+		/// </summary>
+		//protected virtual void OnCurrencyChanged()
+		//{
+		//	if (!isBuilding || m_CurrentTower == null || m_CurrentArea == null)
+		//	{
+		//		return;
+		//	}
+		//	TowerFitStatus fits = m_CurrentArea.Fits(
+		//		m_GridPosition, m_CurrentTower.controller.dimensions);
+
+		//	bool valid = fits == TowerFitStatus.Fits && IsValidPurchase();
+
+		//	m_CurrentTower.Move(
+		//		m_CurrentArea.GridToWorld(m_GridPosition,m_CurrentTower.controller.dimensions),
+		//		m_CurrentArea.transform.rotation,
+		//		valid);
+
+		//	if (valid && !m_GhostPlacementPossible && ghostBecameValid != null)
+		//	{
+		//		m_GhostPlacementPossible = true;
+		//		ghostBecameValid();
+		//	}
+		//}
+
+		/// <summary>
 		/// Closes the Tower UI on death of tower
 		/// </summary>
 		protected void OnTowerDied(DamageableBehaviour targetable)
@@ -612,7 +798,7 @@ namespace TowerDefense.UI.HUD
 
 			m_CurrentTower = Instantiate(towerToBuild.towerGhostPrefab);
 			m_CurrentTower.Initialize(towerToBuild);
-			//m_CurrentTower.Hide();
+			m_CurrentTower.Hide();
 
 		}
 	}

@@ -603,7 +603,8 @@ namespace TowerDefense.UI.HUD
 			{
 				return false;
 			}
-			return LevelManager.instance.currency.CanAfford(m_CurrentTower.controller.purchaseCost);
+			return LevelManager.instance.currency.CanAfford(
+				m_CurrentTower.controller.purchaseCost);
 		}
 
 		/// <summary>
@@ -669,7 +670,8 @@ namespace TowerDefense.UI.HUD
 			}
 			UIPointer uiPointer = WrapPointer(info);
 			RaycastHit output;
-			bool hasHit = Physics.Raycast(uiPointer.ray, out output, float.MaxValue, towerSelectionLayer);
+			bool hasHit = Physics.Raycast(uiPointer.ray, 
+				out output, float.MaxValue, towerSelectionLayer);
 			if (!hasHit || uiPointer.overUI)
 			{
 				return;
