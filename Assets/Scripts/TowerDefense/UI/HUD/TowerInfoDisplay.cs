@@ -22,32 +22,32 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The text component for the description
 		/// </summary>
-		public Text dps;
+		//public Text dps;
 
 		/// <summary>
 		/// The text component for the level
 		/// </summary>
-		public Text level;
+		//public Text level;
 
 		/// <summary>
 		/// The text component for the health
 		/// </summary>
-		public Text health;
+		//public Text health;
 
 		/// <summary>
 		/// The text component for the dimensions
 		/// </summary>
-		public Text dimensions;
+		//public Text dimensions;
 
 		/// <summary>
 		/// The text component for the dimensions
 		/// </summary>
-		public Text upgradeCost;
+		//public Text upgradeCost;
 
 		/// <summary>
 		/// The text component for the dimensions
 		/// </summary>
-		public Text sellPrice;
+		//public Text sellPrice;
 
 		/// <summary>
 		/// Draws the tower data on to the canvas, if the relevant text components are populated
@@ -62,7 +62,8 @@ namespace TowerDefense.UI.HUD
 		}
 
 		/// <summary>
-		/// Draws the tower data on to the canvas, if the relevant text components are populated
+		/// Draws the tower data on to the canvas, 
+		/// if the relevant text components are populated
 		/// </summary>
 		/// <param name="tower">The tower to gain info from</param>
 		/// <param name="levelOfTower">The level of the tower</param>
@@ -75,17 +76,17 @@ namespace TowerDefense.UI.HUD
 			TowerLevel towerLevel = tower.levels[levelOfTower];
 			DisplayText(towerName, tower.towerName);
 			DisplayText(description, towerLevel.description);
-			DisplayText(dps, towerLevel.GetTowerDps().ToString("f2"));
-			DisplayText(health, string.Format("{0}/{1}", tower.configuration.currentHealth, towerLevel.maxHealth));
-			DisplayText(level, (levelOfTower + 1).ToString());
-			DisplayText(dimensions, string.Format("{0}, {1}", tower.dimensions.x, tower.dimensions.y));
-			if (levelOfTower + 1 < tower.levels.Length)
-			{
-				DisplayText(upgradeCost, tower.levels[levelOfTower + 1].cost.ToString());
-			}
+			//DisplayText(dps, towerLevel.GetTowerDps().ToString("f2"));
+			//DisplayText(health, string.Format("{0}/{1}", tower.configuration.currentHealth, towerLevel.maxHealth));
+			//DisplayText(level, (levelOfTower + 1).ToString());
+			//DisplayText(dimensions, string.Format("{0}, {1}", tower.dimensions.x, tower.dimensions.y));
+			//if (levelOfTower + 1 < tower.levels.Length)
+			//{
+			//	DisplayText(upgradeCost, tower.levels[levelOfTower + 1].cost.ToString());
+			//}
 
-			int sellValue = tower.GetSellLevel(levelOfTower);
-			DisplayText(sellPrice, sellValue.ToString());
+			//int sellValue = tower.GetSellLevel(levelOfTower);
+			//DisplayText(sellPrice, sellValue.ToString());
 		}
 
 		/// <summary>

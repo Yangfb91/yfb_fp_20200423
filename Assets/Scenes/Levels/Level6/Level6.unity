@@ -484,6 +484,7 @@ MonoBehaviour:
     m_Bits: 311
   sphereCastRadius: 1
   towerUI: {fileID: 0}
+  buildInfoUI: {fileID: 2312678019271755520}
 --- !u!114 &851899582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,6 +1982,11 @@ PrefabInstance:
     - target: {fileID: 1474438922518644621, guid: 9f7a3358389fc2c49a2833eca78d2e10,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: -240.79137
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688107614171627183, guid: 9f7a3358389fc2c49a2833eca78d2e10,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1688424287061518235, guid: 9f7a3358389fc2c49a2833eca78d2e10,
@@ -1995,6 +2001,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7a3358389fc2c49a2833eca78d2e10, type: 3}
+--- !u!114 &2312678019271755520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2901982164900666008, guid: 9f7a3358389fc2c49a2833eca78d2e10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2312678019271755516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c18c4d74aeee64583267309bbf0296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3777408018472446297 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1473878790710964133, guid: 9f7a3358389fc2c49a2833eca78d2e10,

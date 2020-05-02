@@ -115,6 +115,12 @@ namespace TowerDefense.UI.HUD
 		public TowerUIYfb towerUI;
 
 		/// <summary>
+		/// The UI controller for displaying tower information
+		/// whilst placing
+		/// </summary>
+		public BuildInfoUIYfb buildInfoUI;
+
+		/// <summary>
 		/// Fires when the <see cref="State"/> changes
 		/// should only allow firing when TouchUI is used
 		/// </summary>
@@ -175,6 +181,11 @@ namespace TowerDefense.UI.HUD
 			{
 				throw new InvalidOperationException("Can't cancel out of " +
 					"ghost placement when not in the building state.");
+			}
+
+			if (buildInfoUI != null)
+			{
+				buildInfoUI.Hide();
 			}
 
 			Destroy(m_CurrentTower.gameObject);
@@ -789,6 +800,12 @@ namespace TowerDefense.UI.HUD
 			DeselectTower();
 		}
 
+		/// <summary>
+		/// Creates and hides the tower and shows the buildInfoUI
+		/// </summary>
+		/// <exception cref="ArgumentNullException">
+		/// Throws exception if the <paramref name="towerToBuild"/> is null
+		/// </exception>
 		void SetUpGhostTower([NotNull] Tower towerToBuild)
 		{
 			if (towerToBuild == null)
@@ -800,6 +817,12 @@ namespace TowerDefense.UI.HUD
 			m_CurrentTower.Initialize(towerToBuild);
 			m_CurrentTower.Hide();
 
+			//activate build info
+			if (buildInfoUI != null)
+			{
+				buildInfoUI.Show(towerToBuild);
+			}
 		}
+				
 	}
 }

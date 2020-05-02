@@ -416,8 +416,8 @@ GameObject:
   - component: {fileID: 1472963495151364861}
   - component: {fileID: 1656324271561107819}
   - component: {fileID: 1648547708238237327}
-  - component: {fileID: 1656487884793747499}
-  - component: {fileID: 1656639253629470735}
+  - component: {fileID: 2128441712592691218}
+  - component: {fileID: 2901982164900666008}
   m_Layer: 5
   m_Name: BuildInfo
   m_TagString: Untagged
@@ -557,7 +557,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1656487884793747499
+--- !u!114 &2128441712592691218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -566,22 +566,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1688455035465398195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4856e607ac3a4750bc5c57af015e618c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1648547708238237327}
-  showClipName: Show
-  hideClipName: Hide
---- !u!114 &1656639253629470735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688455035465398195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1532cb0ded4148aebb8d2ab0eab3d477, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a92e3c496f88a6469a026398168a4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: {fileID: 1656795617631054191}
@@ -592,6 +577,21 @@ MonoBehaviour:
   towerInfoDisplay: {fileID: 1656324271561107819}
   panelRectTransform: {fileID: 1473882698309875335}
   confirmationButtons: []
+--- !u!114 &2901982164900666008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688455035465398195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c18c4d74aeee64583267309bbf0296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1648547708238237327}
+  showClipName: Show
+  hideClipName: Hide
 --- !u!1 &1688666790299035945
 GameObject:
   m_ObjectHideFlags: 0
