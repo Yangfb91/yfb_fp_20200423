@@ -333,29 +333,55 @@ namespace TowerDefense.UI.HUD
 		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
 		/// or <see cref="currentSelectedTower" /> is null
 		/// </exception>
-		public void UpgradeSelectedTower()
+		//public void UpgradeSelectedTower()
+		//{
+		//	if (state != State.Normal)
+		//	{
+		//		throw new InvalidOperationException(
+		//			"Trying to upgrade whilst not in Normal state");
+		//	}
+		//	if (currentSelectedTower == null)
+		//	{
+		//		throw new InvalidOperationException(
+		//			"Selected Tower is null");
+		//	}
+		//	if (currentSelectedTower.isAtMaxLevel)
+		//	{
+		//		return;
+		//	}
+		//	int upgradeCost = currentSelectedTower.GetCostForNextLevel();
+		//	bool successfulUpgrade = LevelManagerYfb.instance.currency.TryPurchase(upgradeCost);
+		//	if (successfulUpgrade)
+		//	{
+		//		currentSelectedTower.UpgradeTower();
+		//	}
+		//	towerUI.Hide();
+		//	DeselectTower();
+		//}
+
+		/// <summary>
+		/// Sells <see cref="currentSelectedTower" /> if possible
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
+		/// or <see cref="currentSelectedTower" /> is null
+		/// </exception>
+		public void SellSelectedTower()
 		{
 			if (state != State.Normal)
 			{
-				throw new InvalidOperationException(
-					"Trying to upgrade whilst not in Normal state");
+				throw new InvalidOperationException("Trying to sell tower whilst not in Normal state");
 			}
 			if (currentSelectedTower == null)
 			{
-				throw new InvalidOperationException(
-					"Selected Tower is null");
+				throw new InvalidOperationException("Selected Tower is null");
 			}
-			if (currentSelectedTower.isAtMaxLevel)
+			int sellValue = currentSelectedTower.GetSellLevel();
+			if (LevelManagerYfb.instanceExists && sellValue > 0)
 			{
-				return;
+				LevelManagerYfb.instance.currency.AddCurrency(sellValue);
+				currentSelectedTower.Sell();
 			}
-			int upgradeCost = currentSelectedTower.GetCostForNextLevel();
-			bool successfulUpgrade = LevelManagerYfb.instance.currency.TryPurchase(upgradeCost);
-			if (successfulUpgrade)
-			{
-				currentSelectedTower.UpgradeTower();
-			}
-			towerUI.Hide();
 			DeselectTower();
 		}
 
@@ -497,6 +523,7 @@ namespace TowerDefense.UI.HUD
 				                          out output, 
 										  float.MaxValue, 
 										  towerSelectionLayer);
+
 			
 			if (!hasHit || uiPointer.overUI)
 			{
@@ -504,9 +531,10 @@ namespace TowerDefense.UI.HUD
 			}
 			
 			var controller = output.collider.GetComponent<Tower>();
-			
+
 			if (controller != null)
 			{
+
 				SelectTower(controller);
 			}
 		}
@@ -795,7 +823,7 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		protected void OnTowerDied(DamageableBehaviour targetable)
 		{
-			//towerUI.enabled = false;
+			towerUI.enabled = false;
 			//radiusVisualizerController.HideRadiusVisualizers();
 			DeselectTower();
 		}

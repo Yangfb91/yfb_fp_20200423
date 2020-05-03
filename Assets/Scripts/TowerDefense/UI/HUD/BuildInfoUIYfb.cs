@@ -95,19 +95,23 @@ namespace TowerDefense.UI.HUD
 		public virtual void Show(Tower controller)
 		{
 			m_TowerUI.Show(controller);
-			//if (m_State == AnimationState.Shown)
-			//{
-			//	return;
-			//}
-			//anim.Play(showClipName);
-			//if (m_State == AnimationState.Hiding)
-			//{
-			//	anim[showClipName].normalizedTime = 1;
-			//	m_State = AnimationState.Shown;
-			//	return;
-			//}
-			//m_State = anim[showClipName].normalizedTime < 1 ? AnimationState.Showing : 
-			//	AnimationState.Shown;
+
+			if (m_State == AnimationState.Shown)
+			{
+				return;
+			}
+
+			anim.Play(showClipName);
+
+			if (m_State == AnimationState.Hiding)
+			{
+				anim[showClipName].normalizedTime = 1;
+				m_State = AnimationState.Shown;
+				return;
+			}
+
+			m_State = anim[showClipName].normalizedTime < 1 ? AnimationState.Showing :
+				AnimationState.Shown;
 		}
 
 		/// <summary>
@@ -119,6 +123,7 @@ namespace TowerDefense.UI.HUD
 			{
 				return;
 			}
+
 			m_TowerUI.Hide();
 			anim.Play(hideClipName);
 			m_State = anim[hideClipName].normalizedTime < 1 ? AnimationState.Hiding : 

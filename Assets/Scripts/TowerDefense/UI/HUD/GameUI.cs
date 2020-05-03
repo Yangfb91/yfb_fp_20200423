@@ -256,7 +256,6 @@ namespace TowerDefense.UI.HUD
 			state = newState;
 			if (stateChanged != null)
 			{
-				Debug.Log("statechanged!");
 				stateChanged(oldState, state);
 			}
 		}

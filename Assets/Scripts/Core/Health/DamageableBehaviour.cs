@@ -84,7 +84,8 @@ namespace Core.Health
 		/// </summary>
 		public virtual void Remove()
 		{
-			// Set health to zero so that this behaviour appears to be dead. This will not fire death events
+			// Set health to zero so that this behaviour appears to be dead. 
+			//This will not fire death events
 			configuration.SetHealth(0);
 			OnRemoved();
 		}

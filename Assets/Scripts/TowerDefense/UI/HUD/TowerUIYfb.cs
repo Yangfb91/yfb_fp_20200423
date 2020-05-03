@@ -21,17 +21,17 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		public Text description;
 		
-		public Text upgradeDescription;
+		//public Text upgradeDescription;
 
 		/// <summary>
 		/// The attached sell button
 		/// </summary>
-		public Button sellButton;
+		//public Button sellButton;
 
 		/// <summary>
 		/// The attached upgrade button
 		/// </summary>
-		public Button upgradeButton;
+		//public Button upgradeButton;
 
 		/// <summary>
 		/// Component to display the relevant information of the tower
@@ -40,7 +40,7 @@ namespace TowerDefense.UI.HUD
 
 		public RectTransform panelRectTransform;
 
-		public GameObject[] confirmationButtons;
+		//public GameObject[] confirmationButtons;
 
 		/// <summary>
 		/// The main game camera
@@ -117,17 +117,17 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Upgrades the tower through <see cref="GameUIYfb"/>
 		/// </summary>
-		public void UpgradeButtonClick()
-		{
-			GameUIYfb.instance.UpgradeSelectedTower();
-		}
+		//public void UpgradeButtonClick()
+		//{
+		//	GameUIYfb.instance.UpgradeSelectedTower();
+		//}
 
 		/// <summary>
 		/// Sells the tower through <see cref="GameUI"/>
 		/// </summary>
 		public void SellButtonClick()
 		{
-			GameUI.instance.SellSelectedTower();
+			GameUIYfb.instance.SellSelectedTower();
 		}
 
 		/// <summary>
