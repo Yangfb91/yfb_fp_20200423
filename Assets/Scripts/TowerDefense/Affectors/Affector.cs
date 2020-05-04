@@ -33,7 +33,8 @@ namespace TowerDefense.Affectors
 		/// <param name="mask">
 		/// The physics layer of to search for
 		/// </param>
-		public virtual void Initialize(IAlignmentProvider affectorAlignment, LayerMask mask)
+		public virtual void Initialize(IAlignmentProvider affectorAlignment, 
+			                           LayerMask mask)
 		{
 			alignment = affectorAlignment;
 			enemyMask = mask;

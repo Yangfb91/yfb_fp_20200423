@@ -26,6 +26,11 @@ namespace TowerDefense.Level
         public int startingCurrency;
 
         /// <summary>
+        /// The current state of the level
+        /// </summary>
+        public LevelState levelState { get; protected set; }
+
+        /// <summary>
         /// The currency controller
         /// </summary>
         public Currency currency { get; protected set; }

@@ -20,13 +20,13 @@ namespace TowerDefense.UI.HUD
 		/// The text object for the description
 		/// </summary>
 		public Text description;
-		
+
 		//public Text upgradeDescription;
 
 		/// <summary>
 		/// The attached sell button
 		/// </summary>
-		//public Button sellButton;
+		public Button sellButton;
 
 		/// <summary>
 		/// The attached upgrade button

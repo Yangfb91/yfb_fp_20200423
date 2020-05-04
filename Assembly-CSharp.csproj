@@ -248,6 +248,8 @@
     <Compile Include="Assets\Scripts\TowerDefense\Towers\TowerLaunchers\Launcher.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\TowerLaunchers\SuperTowerLauncher.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\TowerLevel.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\Towers\TowerLevelYfb.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\Towers\TowerYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\EndGameScreen.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\ExitButton.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\BuildInfoUI.cs" />
