@@ -23,7 +23,7 @@ namespace TowerDefense.UI.HUD
 			{
 				Debug.LogError("[UI] No level manager for tower list");
 			}
-			foreach (Tower tower in LevelManagerYfb.instance.towerLibrary)
+			foreach (TowerYfb tower in LevelManagerYfb.instance.towerLibrary)
 			{
 				TowerSpawnButtonYfb button = Instantiate(towerSpawnButton, transform);
 				button.InitializeButton(tower);
@@ -36,7 +36,7 @@ namespace TowerDefense.UI.HUD
 		/// Sets the GameUI to build mode with the <see cref="towerData"/>
 		/// </summary>
 		/// <param name="towerData"></param>
-		void OnButtonTapped(Tower towerData)
+		void OnButtonTapped(TowerYfb towerData)
 		{
 			var gameUI = GameUIYfb.instance;
 			if (gameUI.isBuilding)

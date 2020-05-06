@@ -11,12 +11,12 @@ namespace TowerDefense.Towers
 	/// An individual level of a tower
 	/// </summary>
 	[DisallowMultipleComponent]
-	public class TowerLevelYfb : MonoBehaviour, ISerializationCallbackReceiver
+	public class TowerLevelYfb : MonoBehaviour/*, ISerializationCallbackReceiver*/
 	{
 		/// <summary>
 		/// The prefab for communicating placement in the scene
 		/// </summary>
-		public TowerPlacementGhost towerGhostPrefab;
+		public TowerPlacementGhostYfb towerGhostPrefab;
 
 		/// <summary>
 		/// Build effect gameObject to instantiate on start
@@ -36,22 +36,22 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// The list of effects attached to the tower
 		/// </summary>
-		Affector[] m_Affectors;
+		//Affector[] m_Affectors;
 
 		/// <summary>
 		/// Gets the list of effects attached to the tower
 		/// </summary>
-		protected Affector[] Affectors
-		{
-			get
-			{
-				if (m_Affectors == null)
-				{
-					m_Affectors = GetComponentsInChildren<Affector>();
-				}
-				return m_Affectors;
-			}
-		}
+		//protected Affector[] Affectors
+		//{
+		//	get
+		//	{
+		//		if (m_Affectors == null)
+		//		{
+		//			m_Affectors = GetComponentsInChildren<Affector>();
+		//		}
+		//		return m_Affectors;
+		//	}
+		//}
 
 		/// <summary>
 		/// The physics layer mask that the tower searches on
@@ -101,10 +101,10 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// Gets the tower description
 		/// </summary>
-		public string upgradeDescription
-		{
-			get { return levelData.upgradeDescription; }
-		}
+		//public string upgradeDescription
+		//{
+		//	get { return levelData.upgradeDescription; }
+		//}
 
 		/// <summary>
 		/// Initialises the Effects attached to this object
@@ -115,44 +115,44 @@ namespace TowerDefense.Towers
 		{
 			mask = enemyMask;
 			
-			foreach (Affector effect in Affectors)
-			{
-				effect.Initialize(alignment, mask);
-			}
+			//foreach (Affector effect in Affectors)
+			//{
+			//	effect.Initialize(alignment, mask);
+			//}
 			m_ParentTower = tower;
 		}
 
 		/// <summary>
 		/// A method for activating or deactivating the attached <see cref="Affectors"/>
 		/// </summary>
-		public void SetAffectorState(bool state)
-		{
-			foreach (Affector affector in Affectors)
-			{
-				if (affector != null)
-				{
-					affector.enabled = state;
-				}
-			}
-		}
+		//public void SetAffectorState(bool state)
+		//{
+		//	foreach (Affector affector in Affectors)
+		//	{
+		//		if (affector != null)
+		//		{
+		//			affector.enabled = state;
+		//		}
+		//	}
+		//}
 
 		/// <summary>
 		/// Returns a list of affectors that implement ITowerRadiusVisualizer
 		/// </summary>
 		/// <returns>ITowerRadiusVisualizers of tower</returns>
-		public List<ITowerRadiusProvider> GetRadiusVisualizers()
-		{
-			List<ITowerRadiusProvider> visualizers = new List<ITowerRadiusProvider>();
-			foreach (Affector affector in Affectors)
-			{
-				var visualizer = affector as ITowerRadiusProvider;
-				if (visualizer != null)
-				{
-					visualizers.Add(visualizer);
-				}
-			}
-			return visualizers;
-		}
+		//public List<ITowerRadiusProvider> GetRadiusVisualizers()
+		//{
+		//	List<ITowerRadiusProvider> visualizers = new List<ITowerRadiusProvider>();
+		//	foreach (Affector affector in Affectors)
+		//	{
+		//		var visualizer = affector as ITowerRadiusProvider;
+		//		if (visualizer != null)
+		//		{
+		//			visualizers.Add(visualizer);
+		//		}
+		//	}
+		//	return visualizers;
+		//}
 
 		/// <summary>
 		/// Returns the dps of the tower
@@ -177,17 +177,17 @@ namespace TowerDefense.Towers
 		//	m_ParentTower.KillTower();
 		//}
 
-		public void OnBeforeSerialize()
-		{
-		}
+		//public void OnBeforeSerialize()
+		//{
+		//}
 
-		public void OnAfterDeserialize()
-		{
-			// Setting this member to null is required 
-			// because we are setting this value on a prefab which will 
-			// persists post run in editor, so we null this member to ensure it is repopulated every run
-			m_Affectors = null;
-		}
+		//public void OnAfterDeserialize()
+		//{
+		//	// Setting this member to null is required 
+		//	// because we are setting this value on a prefab which will 
+		//	// persists post run in editor, so we null this member to ensure it is repopulated every run
+		//	m_Affectors = null;
+		//}
 
 		/// <summary>
 		/// Insntiate the build particle effect object

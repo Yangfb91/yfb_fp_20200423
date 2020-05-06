@@ -483,7 +483,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 311
   sphereCastRadius: 1
-  towerUI: {fileID: 0}
+  towerUI: {fileID: 1625432222137222994}
   buildInfoUI: {fileID: 2312678019271755520}
 --- !u!114 &851899582
 MonoBehaviour:
@@ -1124,6 +1124,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 0, z: 6}
   m_Center: {x: 4, y: 0, z: 3}
+--- !u!114 &1472433514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5352027844924378291, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1625432222137222993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b793fe643b472f41af93ad026cff2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493370705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1647,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493371057}
   m_Mesh: {fileID: 4300328, guid: 886239b1d8d2045869a91612d6d6650b, type: 3}
+--- !u!114 &1686049944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2912558737232718802, guid: 9f7a3358389fc2c49a2833eca78d2e10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2312678019271755516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b793fe643b472f41af93ad026cff2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1791337499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e69278bbf05fc248b65bf2a177987d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerLibrary: {fileID: 11400000, guid: 903debecd58cf41dba3386585d538e1c, type: 2}
+  towerLibrary: {fileID: 11400000, guid: 4eda1543b6a105a408c8a73f909a5de9, type: 2}
   startingCurrency: 20
   currencyGainer:
     constantCurrencyAddition: 0
@@ -1868,6 +1892,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2069228156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946815961970659440, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1625432222137222993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1625432222137222993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1935,6 +1971,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerControllerUIYfb
       objectReference: {fileID: 0}
+    - target: {fileID: 2987737914136667525, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+        type: 3}
+      propertyPath: towerInfoDisplay
+      value: 
+      objectReference: {fileID: 1472433514}
+    - target: {fileID: 2987737914136667525, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+        type: 3}
+      propertyPath: sellButton
+      value: 
+      objectReference: {fileID: 2069228156}
     - target: {fileID: 3056625720670878644, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}
       propertyPath: m_Enabled
@@ -2256,6 +2302,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Build Menu Yfb
       objectReference: {fileID: 0}
+    - target: {fileID: 2128441712592691218, guid: 9f7a3358389fc2c49a2833eca78d2e10,
+        type: 3}
+      propertyPath: towerInfoDisplay
+      value: 
+      objectReference: {fileID: 1686049944}
     - target: {fileID: 2312678018361700445, guid: 9f7a3358389fc2c49a2833eca78d2e10,
         type: 3}
       propertyPath: m_SizeDelta.x

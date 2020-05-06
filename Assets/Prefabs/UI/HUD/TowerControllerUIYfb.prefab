@@ -1795,10 +1795,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3057897991849582986}
-  - component: {fileID: 2946824295519076462}
   - component: {fileID: 3056625720670878644}
   - component: {fileID: 2947584249557585528}
   - component: {fileID: 2987737914136667525}
+  - component: {fileID: 5352027844924378291}
   m_Layer: 5
   m_Name: TowerControllerUIYfb
   m_TagString: Untagged
@@ -1827,20 +1827,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2946824295519076462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2987737914136667522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e3c9f661614c0ba03c57f3c07634d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerName: {fileID: 2947021724403585226}
-  description: {fileID: 2947116006854567754}
 --- !u!223 &3056625720670878644
 Canvas:
   m_ObjectHideFlags: 0
@@ -1894,8 +1880,22 @@ MonoBehaviour:
   towerName: {fileID: 2947021724403585226}
   description: {fileID: 2947116006854567754}
   sellButton: {fileID: 0}
-  towerInfoDisplay: {fileID: 2946824295519076462}
+  towerInfoDisplay: {fileID: 0}
   panelRectTransform: {fileID: 3056671407234601216}
+--- !u!114 &5352027844924378291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987737914136667522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b793fe643b472f41af93ad026cff2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: {fileID: 2947021724403585226}
+  description: {fileID: 2947116006854567754}
 --- !u!1 &2987786695102268014
 GameObject:
   m_ObjectHideFlags: 0

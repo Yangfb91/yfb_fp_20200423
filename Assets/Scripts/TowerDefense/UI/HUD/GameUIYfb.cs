@@ -129,7 +129,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Fires when a tower is selected/deselected
 		/// </summary>
-		public event Action<Tower> selectionChanged;
+		public event Action<TowerYfb> selectionChanged;
 
 		/// <summary>
 		/// Placement area ghost tower is currently on
@@ -149,7 +149,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Current tower placeholder. Will be null if not in the <see cref="State.Building" /> state.
 		/// </summary>
-		TowerPlacementGhost m_CurrentTower;
+		TowerPlacementGhostYfb m_CurrentTower;
 
 		/// <summary>
 		/// Tracks if the ghost is in a valid location and the player can afford it
@@ -159,7 +159,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Gets the current selected tower
 		/// </summary>
-		public Tower currentSelectedTower { get; private set; }
+		public TowerYfb currentSelectedTower { get; private set; }
 
 		/// <summary>
 		/// Gets whether certain build operations are valid
@@ -235,7 +235,7 @@ namespace TowerDefense.UI.HUD
 		/// <exception cref="InvalidOperationException">
 		/// Throws exception trying to enter Build Mode when not in Normal Mode
 		/// </exception>
-		public void SetToBuildMode([NotNull] Tower towerToBuild)
+		public void SetToBuildMode([NotNull] TowerYfb towerToBuild)
 		{
 			if (state != State.Normal)
 			{
@@ -305,7 +305,7 @@ namespace TowerDefense.UI.HUD
 		/// <exception cref="InvalidOperationException">
 		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
 		/// </exception>
-		public void SelectTower(Tower tower)
+		public void SelectTower(TowerYfb tower)
 		{
 			if (state != State.Normal)
 			{
@@ -530,7 +530,7 @@ namespace TowerDefense.UI.HUD
 				return;
 			}
 			
-			var controller = output.collider.GetComponent<Tower>();
+			var controller = output.collider.GetComponent<TowerYfb>();
 
 			if (controller != null)
 			{
@@ -759,9 +759,9 @@ namespace TowerDefense.UI.HUD
 				if (fits == TowerFitStatus.Fits)
 				{
 					// Place the ghost
-					Tower controller = m_CurrentTower.controller;
+					TowerYfb controller = m_CurrentTower.controller;
 
-					Tower createdTower = Instantiate(controller);
+					TowerYfb createdTower = Instantiate(controller);
 					createdTower.Initialize(m_CurrentArea, m_GridPosition);
 
 					CancelGhostPlacement();
@@ -834,7 +834,7 @@ namespace TowerDefense.UI.HUD
 		/// <exception cref="ArgumentNullException">
 		/// Throws exception if the <paramref name="towerToBuild"/> is null
 		/// </exception>
-		void SetUpGhostTower([NotNull] Tower towerToBuild)
+		void SetUpGhostTower([NotNull] TowerYfb towerToBuild)
 		{
 			if (towerToBuild == null)
 			{

@@ -231,6 +231,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\Targetting\Targetter.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\Data\TowerLevelData.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\Data\TowerLibrary.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\Towers\Data\TowerLibraryYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\ILauncher.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\ITowerRadiusProvider.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\Towers\Placement\IPlacementArea.cs" />
@@ -264,7 +265,9 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\PlayerBaseHealth.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerDefenseMainMenu.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerInfoDisplay.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerInfoDisplayYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerPlacementGhost.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerPlacementGhostYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerSpawnButton.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerSpawnButtonYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerUI.cs" />

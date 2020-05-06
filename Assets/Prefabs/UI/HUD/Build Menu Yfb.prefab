@@ -414,10 +414,10 @@ GameObject:
   - component: {fileID: 1656850761619890327}
   - component: {fileID: 1705051887058488481}
   - component: {fileID: 1472963495151364861}
-  - component: {fileID: 1656324271561107819}
   - component: {fileID: 1648547708238237327}
   - component: {fileID: 2128441712592691218}
   - component: {fileID: 2901982164900666008}
+  - component: {fileID: 2912558737232718802}
   m_Layer: 5
   m_Name: BuildInfo
   m_TagString: Untagged
@@ -520,26 +520,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1656324271561107819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688455035465398195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e3c9f661614c0ba03c57f3c07634d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerName: {fileID: 1656795617631054191}
-  description: {fileID: 1656501245377508527}
-  dps: {fileID: 1656611937911895269}
-  level: {fileID: 0}
-  health: {fileID: 0}
-  dimensions: {fileID: 0}
-  upgradeCost: {fileID: 0}
-  sellPrice: {fileID: 0}
 --- !u!111 &1648547708238237327
 Animation:
   m_ObjectHideFlags: 0
@@ -571,12 +551,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: {fileID: 1656795617631054191}
   description: {fileID: 1656501245377508527}
-  upgradeDescription: {fileID: 0}
   sellButton: {fileID: 0}
-  upgradeButton: {fileID: 0}
-  towerInfoDisplay: {fileID: 1656324271561107819}
+  towerInfoDisplay: {fileID: 0}
   panelRectTransform: {fileID: 1473882698309875335}
-  confirmationButtons: []
 --- !u!114 &2901982164900666008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +569,20 @@ MonoBehaviour:
   anim: {fileID: 1648547708238237327}
   showClipName: Show
   hideClipName: Hide
+--- !u!114 &2912558737232718802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688455035465398195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b793fe643b472f41af93ad026cff2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: {fileID: 1656795617631054191}
+  description: {fileID: 1656501245377508527}
 --- !u!1 &1688666790299035945
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,9 @@ namespace TowerDefense.Level
 	public class LevelManager : Singleton<LevelManager>
 	{
 		/// <summary>
-		/// The configured level intro. If this is null the LevelManager will fall through to the gameplay state (i.e. SpawningEnemies)
+		/// The configured level intro. 
+		/// If this is null the LevelManager will fall through to 
+		/// the gameplay state (i.e. SpawningEnemies)
 		/// </summary>
 		public LevelIntro intro;
 
@@ -178,7 +180,8 @@ namespace TowerDefense.Level
 			waveManager = GetComponent<WaveManager>();
 			waveManager.spawningCompleted += OnSpawningCompleted;
 
-			// Does not use the change state function as we don't need to broadcast the event for this default value
+			// Does not use the change state function 
+			//as we don't need to broadcast the event for this default value
 			levelState = LevelState.Intro;
 			numberOfEnemies = 0;
 

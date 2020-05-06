@@ -32,18 +32,18 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Fires when the button is tapped
 		/// </summary>
-		public event Action<Tower> buttonTapped;
+		public event Action<TowerYfb> buttonTapped;
 
 		/// <summary>
 		/// Fires when the pointer is outside of the button bounds
 		/// and still down
 		/// </summary>
-		public event Action<Tower> draggedOff;
+		public event Action<TowerYfb> draggedOff;
 		
 		/// <summary>
 		/// The tower controller that defines the button
 		/// </summary>
-		Tower m_Tower;
+		TowerYfb m_Tower;
 
 		/// <summary>
 		/// Cached reference to level currency
@@ -76,13 +76,13 @@ namespace TowerDefense.UI.HUD
 		/// <param name="towerData">
 		/// The tower to initialize the button with
 		/// </param>
-		public void InitializeButton(Tower towerData)
+		public void InitializeButton(TowerYfb towerData)
 		{
 			m_Tower = towerData;
 
 			if (towerData.levels.Length > 0)
 			{
-				TowerLevel firstTower = towerData.levels[0];
+				TowerLevelYfb firstTower = towerData.levels[0];
 				buttonText.text = firstTower.cost.ToString();
 				towerIcon.sprite = firstTower.levelData.icon;
 			}

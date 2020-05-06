@@ -36,7 +36,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Component to display the relevant information of the tower
 		/// </summary>
-		public TowerInfoDisplay towerInfoDisplay;
+		public TowerInfoDisplayYfb towerInfoDisplay;
 
 		public RectTransform panelRectTransform;
 
@@ -50,7 +50,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The current tower to draw
 		/// </summary>
-		protected Tower m_Tower;
+		protected TowerYfb m_Tower;
 
 		/// <summary>
 		/// The canvas attached to the gameObject
@@ -63,7 +63,7 @@ namespace TowerDefense.UI.HUD
 		/// <param name="towerToShow">
 		/// The tower to gain info from
 		/// </param>
-		public virtual void Show(Tower towerToShow)
+		public virtual void Show(TowerYfb towerToShow)
 		{
 			if (towerToShow == null)
 			{
@@ -74,7 +74,7 @@ namespace TowerDefense.UI.HUD
 
 			m_Canvas.enabled = true;
 
-			//int sellValue = m_Tower.GetSellLevel();
+			int sellValue = m_Tower.GetSellLevel();
 			//if (sellButton != null)
 			//{
 			//	sellButton.gameObject.SetActive(sellValue > 0);
@@ -91,7 +91,7 @@ namespace TowerDefense.UI.HUD
 			//			m_Tower.levels[m_Tower.currentLevel + 1].upgradeDescription.ToUpper();
 			//	}
 			//}
-			
+
 			//LevelManagerYfb.instance.currency.currencyChanged += OnCurrencyChanged;
 			towerInfoDisplay.Show(towerToShow);
 			//foreach (var button in confirmationButtons)
@@ -142,7 +142,7 @@ namespace TowerDefense.UI.HUD
 		/// Fires when tower is selected/deselected
 		/// </summary>
 		/// <param name="newTower"></param>
-		protected virtual void OnUISelectionChanged(Tower newTower)
+		protected virtual void OnUISelectionChanged(TowerYfb newTower)
 		{
 			if (newTower != null)
 			{

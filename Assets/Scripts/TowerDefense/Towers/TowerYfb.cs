@@ -54,7 +54,7 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// Gets the first level tower ghost prefab
 		/// </summary>
-		public TowerPlacementGhost towerGhostPrefab
+		public TowerPlacementGhostYfb towerGhostPrefab
 		{
 			get { return levels[currentLevel].towerGhostPrefab; }
 		}
@@ -160,6 +160,7 @@ namespace TowerDefense.Towers
 
 				return cost;
 			}
+
 			return levels[currentLevel].sell;
 		}
 
