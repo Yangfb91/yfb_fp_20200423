@@ -21,7 +21,7 @@ namespace TowerDefense.UI.HUD
 		/// </summary>
 		public Text description;
 
-		//public Text upgradeDescription;
+		public Text upgradeDescription;
 
 		/// <summary>
 		/// The attached sell button
@@ -31,7 +31,7 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// The attached upgrade button
 		/// </summary>
-		//public Button upgradeButton;
+		public Button upgradeButton;
 
 		/// <summary>
 		/// Component to display the relevant information of the tower
@@ -75,24 +75,24 @@ namespace TowerDefense.UI.HUD
 			m_Canvas.enabled = true;
 
 			int sellValue = m_Tower.GetSellLevel();
-			//if (sellButton != null)
-			//{
-			//	sellButton.gameObject.SetActive(sellValue > 0);
-			//}
-			//if (upgradeButton != null)
-			//{
-			//	upgradeButton.interactable =
-			//		LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
-			//	bool maxLevel = m_Tower.isAtMaxLevel;
-			//	upgradeButton.gameObject.SetActive(!maxLevel);
-			//	if (!maxLevel)
-			//	{
-			//		upgradeDescription.text =
-			//			m_Tower.levels[m_Tower.currentLevel + 1].upgradeDescription.ToUpper();
-			//	}
-			//}
+			if (sellButton != null)
+			{
+				sellButton.gameObject.SetActive(sellValue > 0);
+			}
+			if (upgradeButton != null)
+			{
+				upgradeButton.interactable =
+					LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
+				bool maxLevel = m_Tower.isAtMaxLevel;
+				upgradeButton.gameObject.SetActive(!maxLevel);
+				if (!maxLevel)
+				{
+					upgradeDescription.text =
+						m_Tower.levels[m_Tower.currentLevel + 1].upgradeDescription.ToUpper();
+				}
+			}
 
-			//LevelManagerYfb.instance.currency.currencyChanged += OnCurrencyChanged;
+			LevelManagerYfb.instance.currency.currencyChanged += OnCurrencyChanged;
 			towerInfoDisplay.Show(towerToShow);
 			//foreach (var button in confirmationButtons)
 			//{
@@ -111,16 +111,16 @@ namespace TowerDefense.UI.HUD
 			//	GameUIYfb.instance.HideRadiusVisualizer();
 			//}
 			m_Canvas.enabled = false;
-			//LevelManagerYfb.instance.currency.currencyChanged -= OnCurrencyChanged;
+			LevelManagerYfb.instance.currency.currencyChanged -= OnCurrencyChanged;
 		}
 
 		/// <summary>
 		/// Upgrades the tower through <see cref="GameUIYfb"/>
 		/// </summary>
-		//public void UpgradeButtonClick()
-		//{
-		//	GameUIYfb.instance.UpgradeSelectedTower();
-		//}
+		public void UpgradeButtonClick()
+		{
+			GameUIYfb.instance.UpgradeSelectedTower();
+		}
 
 		/// <summary>
 		/// Sells the tower through <see cref="GameUI"/>
@@ -218,14 +218,14 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Check if player can afford upgrade on currency changed
 		/// </summary>
-		//void OnCurrencyChanged()
-		//{
-		//	if (m_Tower != null && upgradeButton != null)
-		//	{
-		//		upgradeButton.interactable =
-		//			LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
-		//	}
-		//}
+		void OnCurrencyChanged()
+		{
+			if (m_Tower != null && upgradeButton != null)
+			{
+				upgradeButton.interactable =
+					LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
+			}
+		}
 
 		/// <summary>
 		/// Unsubscribe from GameUIYfb selectionChanged and stateChanged

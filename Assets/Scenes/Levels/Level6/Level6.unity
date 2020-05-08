@@ -1763,8 +1763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e69278bbf05fc248b65bf2a177987d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intro: {fileID: 0}
   towerLibrary: {fileID: 11400000, guid: 4eda1543b6a105a408c8a73f909a5de9, type: 2}
-  startingCurrency: 20
+  startingCurrency: 200
   currencyGainer:
     constantCurrencyAddition: 0
     constantCurrencyGainRate: 0
@@ -1950,11 +1951,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1625432222137222994}
+    - target: {fileID: 2947834271980723924, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpgradeButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 2986843471877243194, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2987339585084997702, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}

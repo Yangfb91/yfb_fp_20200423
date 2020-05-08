@@ -333,31 +333,31 @@ namespace TowerDefense.UI.HUD
 		/// Throws exception when selecting tower when <see cref="State" /> does not equal <see cref="State.Normal" />
 		/// or <see cref="currentSelectedTower" /> is null
 		/// </exception>
-		//public void UpgradeSelectedTower()
-		//{
-		//	if (state != State.Normal)
-		//	{
-		//		throw new InvalidOperationException(
-		//			"Trying to upgrade whilst not in Normal state");
-		//	}
-		//	if (currentSelectedTower == null)
-		//	{
-		//		throw new InvalidOperationException(
-		//			"Selected Tower is null");
-		//	}
-		//	if (currentSelectedTower.isAtMaxLevel)
-		//	{
-		//		return;
-		//	}
-		//	int upgradeCost = currentSelectedTower.GetCostForNextLevel();
-		//	bool successfulUpgrade = LevelManagerYfb.instance.currency.TryPurchase(upgradeCost);
-		//	if (successfulUpgrade)
-		//	{
-		//		currentSelectedTower.UpgradeTower();
-		//	}
-		//	towerUI.Hide();
-		//	DeselectTower();
-		//}
+		public void UpgradeSelectedTower()
+		{
+			if (state != State.Normal)
+			{
+				throw new InvalidOperationException(
+					"Trying to upgrade whilst not in Normal state");
+			}
+			if (currentSelectedTower == null)
+			{
+				throw new InvalidOperationException(
+					"Selected Tower is null");
+			}
+			if (currentSelectedTower.isAtMaxLevel)
+			{
+				return;
+			}
+			int upgradeCost = currentSelectedTower.GetCostForNextLevel();
+			bool successfulUpgrade = LevelManagerYfb.instance.currency.TryPurchase(upgradeCost);
+			if (successfulUpgrade)
+			{
+				currentSelectedTower.UpgradeTower();
+			}
+			towerUI.Hide();
+			DeselectTower();
+		}
 
 		/// <summary>
 		/// Sells <see cref="currentSelectedTower" /> if possible

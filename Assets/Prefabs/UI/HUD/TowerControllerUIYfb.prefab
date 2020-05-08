@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3057092483023668278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -415,10 +415,10 @@ RectTransform:
   m_Father: {fileID: 3057401695350817282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.50002, y: -41.9}
-  m_SizeDelta: {x: 267.00003, y: 83.8}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 83.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3055069369685542450
 CanvasRenderer:
@@ -510,7 +510,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2987737914136667525}
         m_MethodName: UpgradeButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1879,8 +1879,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: {fileID: 2947021724403585226}
   description: {fileID: 2947116006854567754}
-  sellButton: {fileID: 0}
-  towerInfoDisplay: {fileID: 0}
+  upgradeDescription: {fileID: 2947845721774750338}
+  sellButton: {fileID: 2946815961970659440}
+  upgradeButton: {fileID: 2947834271980723924}
+  towerInfoDisplay: {fileID: 5352027844924378291}
   panelRectTransform: {fileID: 3056671407234601216}
 --- !u!114 &5352027844924378291
 MonoBehaviour:

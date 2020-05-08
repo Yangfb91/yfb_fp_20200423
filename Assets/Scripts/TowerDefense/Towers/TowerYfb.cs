@@ -46,10 +46,10 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// Gets whether the tower can level up anymore
 		/// </summary>
-		//public bool isAtMaxLevel
-		//{
-		//	get { return currentLevel == levels.Length - 1; }
-		//}
+		public bool isAtMaxLevel
+		{
+			get { return currentLevel == levels.Length - 1; }
+		}
 
 		/// <summary>
 		/// Gets the first level tower ghost prefab
@@ -115,14 +115,14 @@ namespace TowerDefense.Towers
 		/// Provides information on the cost to upgrade
 		/// </summary>
 		/// <returns>Returns -1 if the towers is already at max level, other returns the cost to upgrade</returns>
-		//public int GetCostForNextLevel()
-		//{
-		//	if (isAtMaxLevel)
-		//	{
-		//		return -1;
-		//	}
-		//	return levels[currentLevel + 1].cost;
-		//}
+		public int GetCostForNextLevel()
+		{
+			if (isAtMaxLevel)
+			{
+				return -1;
+			}
+			return levels[currentLevel + 1].cost;
+		}
 
 		/// <summary>
 		/// Kills this tower
@@ -167,15 +167,15 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// Used to (try to) upgrade the tower data
 		/// </summary>
-		//public virtual bool UpgradeTower()
-		//{
-		//	if (isAtMaxLevel)
-		//	{
-		//		return false;
-		//	}
-		//	SetLevel(currentLevel + 1);
-		//	return true;
-		//}
+		public virtual bool UpgradeTower()
+		{
+			if (isAtMaxLevel)
+			{
+				return false;
+			}
+			SetLevel(currentLevel + 1);
+			return true;
+		}
 
 		/// <summary>
 		/// A method for downgrading tower

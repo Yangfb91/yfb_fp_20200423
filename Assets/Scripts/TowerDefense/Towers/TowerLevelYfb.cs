@@ -101,10 +101,10 @@ namespace TowerDefense.Towers
 		/// <summary>
 		/// Gets the tower description
 		/// </summary>
-		//public string upgradeDescription
-		//{
-		//	get { return levelData.upgradeDescription; }
-		//}
+		public string upgradeDescription
+		{
+			get { return levelData.upgradeDescription; }
+		}
 
 		/// <summary>
 		/// Initialises the Effects attached to this object
