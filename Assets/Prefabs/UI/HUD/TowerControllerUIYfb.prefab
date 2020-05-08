@@ -941,7 +941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3057022724565623456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1884,6 +1884,8 @@ MonoBehaviour:
   upgradeButton: {fileID: 2947834271980723924}
   towerInfoDisplay: {fileID: 5352027844924378291}
   panelRectTransform: {fileID: 3056671407234601216}
+  confirmationButtons:
+  - {fileID: 2987339585084997702}
 --- !u!114 &5352027844924378291
 MonoBehaviour:
   m_ObjectHideFlags: 0

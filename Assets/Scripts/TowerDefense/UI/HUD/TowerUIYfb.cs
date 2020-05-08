@@ -40,7 +40,7 @@ namespace TowerDefense.UI.HUD
 
 		public RectTransform panelRectTransform;
 
-		//public GameObject[] confirmationButtons;
+		public GameObject[] confirmationButtons;
 
 		/// <summary>
 		/// The main game camera
@@ -92,12 +92,12 @@ namespace TowerDefense.UI.HUD
 				}
 			}
 
-			LevelManagerYfb.instance.currency.currencyChanged += OnCurrencyChanged;
+			//LevelManagerYfb.instance.currency.currencyChanged += OnCurrencyChanged;
 			towerInfoDisplay.Show(towerToShow);
-			//foreach (var button in confirmationButtons)
-			//{
-			//	button.SetActive(false);
-			//}
+			foreach (var button in confirmationButtons)
+			{
+				button.SetActive(false);
+			}
 		}
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace TowerDefense.UI.HUD
 			//	GameUIYfb.instance.HideRadiusVisualizer();
 			//}
 			m_Canvas.enabled = false;
-			LevelManagerYfb.instance.currency.currencyChanged -= OnCurrencyChanged;
+			//LevelManagerYfb.instance.currency.currencyChanged -= OnCurrencyChanged;
 		}
 
 		/// <summary>
@@ -218,14 +218,14 @@ namespace TowerDefense.UI.HUD
 		/// <summary>
 		/// Check if player can afford upgrade on currency changed
 		/// </summary>
-		void OnCurrencyChanged()
-		{
-			if (m_Tower != null && upgradeButton != null)
-			{
-				upgradeButton.interactable =
-					LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
-			}
-		}
+		//void OnCurrencyChanged()
+		//{
+		//	if (m_Tower != null && upgradeButton != null)
+		//	{
+		//		upgradeButton.interactable =
+		//			LevelManagerYfb.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
+		//	}
+		//}
 
 		/// <summary>
 		/// Unsubscribe from GameUIYfb selectionChanged and stateChanged

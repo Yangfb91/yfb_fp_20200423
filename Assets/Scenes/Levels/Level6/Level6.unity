@@ -1965,7 +1965,7 @@ PrefabInstance:
     - target: {fileID: 2987339585084997702, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2987708929245699960, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}
@@ -1976,6 +1976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerControllerUIYfb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987737914136667525, guid: 43b9da68a3d6e744f97467d225a5cbe4,
+        type: 3}
+      propertyPath: confirmationButtons.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2987737914136667525, guid: 43b9da68a3d6e744f97467d225a5cbe4,
         type: 3}
