@@ -273,6 +273,7 @@
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerUI.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\TowerUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\WaveUI.cs" />
+    <Compile Include="Assets\Scripts\TowerDefense\UI\HUD\WaveUIYfb.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\IntervalParticleSystemPlayer.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\LevelSelectButton.cs" />
     <Compile Include="Assets\Scripts\TowerDefense\UI\LevelSelectScreen.cs" />

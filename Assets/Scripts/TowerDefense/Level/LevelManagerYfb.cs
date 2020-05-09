@@ -33,6 +33,11 @@ namespace TowerDefense.Level
         public int startingCurrency;
 
         /// <summary>
+        /// The attached wave manager
+        /// </summary>
+        public WaveManager waveManager { get; protected set; }
+
+        /// <summary>
         /// The current state of the level
         /// </summary>
         public LevelState levelState { get; protected set; }
