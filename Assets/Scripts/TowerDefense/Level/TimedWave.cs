@@ -4,7 +4,8 @@ using UnityEngine;
 namespace TowerDefense.Level
 {
 	/// <summary>
-	/// A wave implementation that triggers the waveCompleted event after an elapsed amount of time
+	/// A wave implementation that triggers the waveCompleted event 
+	/// after an elapsed amount of time
 	/// </summary>
 	public class TimedWave : Wave
 	{

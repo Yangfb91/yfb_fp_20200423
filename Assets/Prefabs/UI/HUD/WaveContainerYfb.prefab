@@ -386,11 +386,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224460643181073094}
-  - component: {fileID: 114583648660969900}
   - component: {fileID: 222562760328383634}
   - component: {fileID: 223639173063608714}
+  - component: {fileID: 5156738122229324951}
   m_Layer: 5
-  m_Name: WaveContainer
+  m_Name: WaveContainerYfb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,20 +416,6 @@ RectTransform:
   m_AnchoredPosition: {x: -99.79001, y: 0}
   m_SizeDelta: {x: 318.86, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &114583648660969900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918918360851056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eb0cbf6d1d5420b91ef259cc18a6c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  display: {fileID: 114547507189251786}
-  waveFillImage: {fileID: 114572059963527286}
 --- !u!222 &222562760328383634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -459,3 +445,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &5156738122229324951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918918360851056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64cb2950dc6f8a4982ecc7f8541d216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 114547507189251786}
+  waveFillImage: {fileID: 114572059963527286}
