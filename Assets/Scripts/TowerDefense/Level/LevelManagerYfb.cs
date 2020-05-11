@@ -131,22 +131,22 @@ namespace TowerDefense.Level
 
             switch (newState)
             {
-                //case LevelState.SpawningEnemies:
-                //    waveManager.StartWaves();
-                //    break;
-                //case LevelState.AllEnemiesSpawned:
-                //    // Win immediately if all enemies are already dead
-                //    if (numberOfEnemies == 0)
-                //    {
-                //        ChangeLevelState(LevelState.Win);
-                //    }
-                //    break;
-                //case LevelState.Lose:
-                //    SafelyCallLevelFailed();
-                //    break;
-                //case LevelState.Win:
-                //    SafelyCallLevelCompleted();
-                //    break;
+                case LevelState.SpawningEnemies:
+                    waveManager.StartWaves();
+                    break;
+                    //case LevelState.AllEnemiesSpawned:
+                    //    // Win immediately if all enemies are already dead
+                    //    if (numberOfEnemies == 0)
+                    //    {
+                    //        ChangeLevelState(LevelState.Win);
+                    //    }
+                    //    break;
+                    //case LevelState.Lose:
+                    //    SafelyCallLevelFailed();
+                    //    break;
+                    //case LevelState.Win:
+                    //    SafelyCallLevelCompleted();
+                    //    break;
             }
         }
 

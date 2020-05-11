@@ -50,7 +50,7 @@ namespace TowerDefense.UI.HUD
 
 		protected virtual void Update()
 		{
-			waveFillImage.fillAmount = LevelManagerYfb.instance.waveManager.waveProgress;
+			//waveFillImage.fillAmount = LevelManagerYfb.instance.waveManager.waveProgress;
 		}
 
 		/// <summary>
