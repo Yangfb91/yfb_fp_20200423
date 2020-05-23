@@ -184,8 +184,8 @@ namespace TowerDefense.MeshCreator
 			}
 			float z = 1 - x - y;
 			var randomBaryCentricPoint = new Vector3(x, y, z);
-			Vector3 cartesianPoint = (randomBaryCentricPoint.x * randomTriangle.v0) + (randomBaryCentricPoint.y *
-			                                                                           randomTriangle.v1) +
+			Vector3 cartesianPoint = (randomBaryCentricPoint.x * randomTriangle.v0) + 
+				                     (randomBaryCentricPoint.y * randomTriangle.v1) +
 			                         (randomBaryCentricPoint.z * randomTriangle.v2);
 			return cartesianPoint;
 		}

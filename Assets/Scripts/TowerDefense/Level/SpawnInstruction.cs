@@ -15,7 +15,7 @@ namespace TowerDefense.Level
 		/// The agent to spawn - i.e. the monster for the wave
 		/// </summary>
 		public AgentConfiguration agentConfiguration;
-
+		
 		/// <summary>
 		/// The delay from the previous spawn until when this agent is spawned
 		/// </summary>

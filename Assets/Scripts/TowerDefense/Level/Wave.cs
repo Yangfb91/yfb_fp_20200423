@@ -77,7 +77,7 @@ namespace TowerDefense.Level
 		protected void Spawn()
 		{
 			SpawnInstruction spawnInstruction = spawnInstructions[m_CurrentIndex];
-			SpawnAgent(spawnInstruction.agentConfiguration, spawnInstruction.startingNode);
+			SpawnAgent(spawnInstruction.agentConfiguration, spawnInstruction.startingNode);		
 		}
 
 		/// <summary>

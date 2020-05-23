@@ -12,7 +12,7 @@ namespace TowerDefense.Level
     /// <summary>
     /// The level manager - handles the level states and tracks the player's currency
     /// </summary>
-    
+    [RequireComponent(typeof(WaveManagerYfb))]
     public class LevelManagerYfb : Singleton<LevelManagerYfb>
     {
         /// <summary>
@@ -35,7 +35,12 @@ namespace TowerDefense.Level
         /// <summary>
         /// The attached wave manager
         /// </summary>
-        public WaveManager waveManager { get; protected set; }
+        public WaveManagerYfb waveManager { get; protected set; }
+
+        /// <summary>
+        /// Number of enemies currently in the level
+        /// </summary>
+        public int numberOfEnemies { get; protected set; }
 
         /// <summary>
         /// The current state of the level
@@ -58,9 +63,44 @@ namespace TowerDefense.Level
         /// </summary>
         public event Action<LevelState, LevelState> levelStateChanged;
 
+        /// <summary>
+        /// Fired when the number of enemies has changed
+        /// </summary>
+        public event Action<int> numberOfEnemiesChanged;
+
+        /// <summary>
+        /// Increments the number of enemies. Called on Agent spawn
+        /// </summary>
+        public virtual void IncrementNumberOfEnemies()
+        {
+            numberOfEnemies++;
+            SafelyCallNumberOfEnemiesChanged();
+        }
+
+        /// <summary>
+        /// Decrements the number of enemies. Called on Agent death
+        /// </summary>
+        public virtual void DecrementNumberOfEnemies()
+        {
+            numberOfEnemies--;
+            SafelyCallNumberOfEnemiesChanged();
+            if (numberOfEnemies < 0)
+            {
+                Debug.LogError("[LEVEL] There should never be a negative number of enemies. Something broke!");
+                numberOfEnemies = 0;
+            }
+
+            if (numberOfEnemies == 0 && levelState == LevelState.AllEnemiesSpawned)
+            {
+                ChangeLevelState(LevelState.Win);
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();
+            //waveManager = GetComponent<WaveManagerYfb>();
+            //waveManager.spawningCompleted += OnSpawningCompleted;
 
             levelState = LevelState.Intro;
 
@@ -147,6 +187,17 @@ namespace TowerDefense.Level
                     //case LevelState.Win:
                     //    SafelyCallLevelCompleted();
                     //    break;
+            }
+        }
+
+        /// <summary>
+        /// Calls the <see cref="numberOfEnemiesChanged"/> event
+        /// </summary>
+        protected virtual void SafelyCallNumberOfEnemiesChanged()
+        {
+            if (numberOfEnemiesChanged != null)
+            {
+                numberOfEnemiesChanged(numberOfEnemies);
             }
         }
 
