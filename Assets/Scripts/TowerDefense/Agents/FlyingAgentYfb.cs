@@ -23,16 +23,16 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected override void OnPartialPathUpdate()
 		{
-			//if (!isPathBlocked)
-			//{
-			//	state = State.OnCompletePath;
-			//	return;
-			//}
-			//if (!isAtDestination)
-			//{
-			//	return;
-			//}
-			m_NavMeshAgent.enabled = false;
+            if (!isPathBlocked)
+            {
+                state = State.OnCompletePath;
+                return;
+            }
+            //if (!isAtDestination)
+            //{
+            //    return;
+            //}
+            m_NavMeshAgent.enabled = false;
 			m_CurrentWaitTime = m_WaitTime;
 			state = State.PushingThrough;
 		}
@@ -43,19 +43,19 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected override void PathUpdate()
 		{
-			//switch (state)
-			//{
-			//	case State.OnCompletePath:
-			//		OnCompletePathUpdate();
-			//		break;
-			//	case State.OnPartialPath:
-			//		OnPartialPathUpdate();
-			//		break;
-			//	case State.PushingThrough:
-			//		PushingThrough();
-			//		break;
-			//}
-		}
+            switch (state)
+            {
+                case State.OnCompletePath:
+                    OnCompletePathUpdate();
+                    break;
+                case State.OnPartialPath:
+                    OnPartialPathUpdate();
+                    break;
+                case State.PushingThrough:
+                    PushingThrough();
+                    break;
+            }
+        }
 
 		/// <summary>
 		/// When flying agents are pushing through, give them a small amount of time to 
@@ -74,6 +74,7 @@ namespace TowerDefense.Agents
 			}
 			// Check if there is a navmesh under the agent, if not, then reset the timer
 			NavMeshHit hit;
+			Debug.Log(NavMesh.Raycast(transform.position + Vector3.up, Vector3.down, out hit, navMeshMask));
 			if (!NavMesh.Raycast(transform.position + Vector3.up, Vector3.down, out hit, navMeshMask))
 			{
 				m_CurrentWaitTime = m_WaitTime;
@@ -83,8 +84,8 @@ namespace TowerDefense.Agents
 				// If the time elapses, and there is a NavMesh under it, resume agent movement as normal
 				m_NavMeshAgent.enabled = true;
 				NavigateTo(m_Destination);
-				//state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
-			}
+                state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
+            }
 		}
 	}
 }

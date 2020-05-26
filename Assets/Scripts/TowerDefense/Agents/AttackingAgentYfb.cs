@@ -29,14 +29,14 @@ namespace TowerDefense.Agents
 		public override void Initialize()
 		{
 			base.Initialize();
-			
-			//// Attack affector
-			//m_AttackAffector.Initialize(configuration.alignmentProvider);
-			
-			//// We don't want agents to attack towers until their path is blocked, 
-			//// so disable m_AttackAffector until it is needed
-			//m_AttackAffector.enabled = false;
-		}
+
+            //// Attack affector
+            //m_AttackAffector.Initialize(configuration.alignmentProvider);
+
+            //// We don't want agents to attack towers until their path is blocked, 
+            //// so disable m_AttackAffector until it is needed
+            //m_AttackAffector.enabled = false;
+        }
 
 		/// <summary>
 		/// Unsubscribes from tracked towers removed event
@@ -94,19 +94,19 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected override void PathUpdate()
 		{
-			//	switch (state)
-			//	{
-			//		case State.OnCompletePath:
-			//			OnCompletePathUpdate();
-			//			break;
-			//		case State.OnPartialPath:
-			//			OnPartialPathUpdate();
-			//			break;
-			//		case State.Attacking:
-			//			AttackingUpdate();
-			//			break;
-			//	}
-		}
+            switch (state)
+            {
+                case State.OnCompletePath:
+                    OnCompletePathUpdate();
+                    break;
+                case State.OnPartialPath:
+                    OnPartialPathUpdate();
+                    break;
+                //case State.Attacking:
+                //    AttackingUpdate();
+                //    break;
+            }
+        }
 
 		/// <summary>
 		/// Change to <see cref="Agent.State.OnCompletePath" /> when path is no longer blocked or to
@@ -114,49 +114,49 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected override void OnPartialPathUpdate()
 		{
-			//	if (!isPathBlocked)
-			//	{
-			//		state = State.OnCompletePath;
-			//		return;
-			//	}
+            if (!isPathBlocked)
+            {
+                state = State.OnCompletePath;
+                return;
+            }
 
-			//	// Check for closest tower at the end of the partial path
-			//	m_AttackAffector.towerTargetter.transform.position = m_NavMeshAgent.pathEndPosition;
-			//	Tower tower = GetClosestTower();
-			//	if (tower != m_TargetTower)
-			//	{
-			//		// if the current target is to be replaced, unsubscribe from removed event
-			//		if (m_TargetTower != null)
-			//		{
-			//			m_TargetTower.removed -= OnTargetTowerDestroyed;
-			//		}
+            //	// Check for closest tower at the end of the partial path
+            //	m_AttackAffector.towerTargetter.transform.position = m_NavMeshAgent.pathEndPosition;
+            //	Tower tower = GetClosestTower();
+            //	if (tower != m_TargetTower)
+            //	{
+            //		// if the current target is to be replaced, unsubscribe from removed event
+            //		if (m_TargetTower != null)
+            //		{
+            //			m_TargetTower.removed -= OnTargetTowerDestroyed;
+            //		}
 
-			//		// assign target, can be null
-			//		m_TargetTower = tower;
+            //		// assign target, can be null
+            //		m_TargetTower = tower;
 
-			//		// if new target found subscribe to removed event
-			//		if (m_TargetTower != null)
-			//		{
-			//			m_TargetTower.removed += OnTargetTowerDestroyed;
-			//		}
-			//	}
-			//	if (m_TargetTower == null)
-			//	{
-			//		return;
-			//	}
-			//	float distanceToTower = Vector3.Distance(transform.position, m_TargetTower.transform.position);
-			//	if (!(distanceToTower < m_AttackAffector.towerTargetter.effectRadius))
-			//	{
-			//		return;
-			//	}
-			//	if (!m_AttackAffector.enabled)
-			//	{
-			//		m_AttackAffector.towerTargetter.transform.position = transform.position;
-			//		m_AttackAffector.enabled = true;
-			//	}
-			//	state = State.Attacking;
-			//	m_NavMeshAgent.isStopped = true;
-		}
+            //		// if new target found subscribe to removed event
+            //		if (m_TargetTower != null)
+            //		{
+            //			m_TargetTower.removed += OnTargetTowerDestroyed;
+            //		}
+            //	}
+            //	if (m_TargetTower == null)
+            //	{
+            //		return;
+            //	}
+            //	float distanceToTower = Vector3.Distance(transform.position, m_TargetTower.transform.position);
+            //	if (!(distanceToTower < m_AttackAffector.towerTargetter.effectRadius))
+            //	{
+            //		return;
+            //	}
+            //	if (!m_AttackAffector.enabled)
+            //	{
+            //		m_AttackAffector.towerTargetter.transform.position = transform.position;
+            //		m_AttackAffector.enabled = true;
+            //	}
+            //	state = State.Attacking;
+            //	m_NavMeshAgent.isStopped = true;
+        }
 
 		/// <summary>
 		/// The agent attacks until the path is available again or it has killed the target tower

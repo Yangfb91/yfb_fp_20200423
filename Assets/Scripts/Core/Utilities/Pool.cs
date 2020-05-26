@@ -445,12 +445,13 @@ namespace Core.Utilities
 		/// </summary>
 		T PrefabFactory()
 		{
+			Debug.Log("m_Prefab:"+ m_Prefab);
 			T newElement = Object.Instantiate(m_Prefab);
 			if (m_Initialize != null)
 			{
 				m_Initialize(newElement);
 			}
-
+			Debug.Log("newElement:"+ newElement);
 			return newElement;
 		}
 

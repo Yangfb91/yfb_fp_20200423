@@ -32,7 +32,7 @@ namespace TowerDefense.Level
 		/// <summary>
 		/// The event that is fired when a Wave is completed
 		/// </summary>
-		public event Action waveCompleted;
+		//public event Action waveCompleted;
 
 		//public virtual float progress
 		//{

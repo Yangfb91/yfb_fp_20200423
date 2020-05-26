@@ -12,7 +12,8 @@ namespace TowerDefense.Agents
 	/// <summary>
 	/// An agent will follow a path of nodes
 	/// </summary>
-	[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(AttackAffector))]
+	[RequireComponent(typeof(NavMeshAgent))]
+	//[RequireComponent(typeof(AttackAffector))]
 	public abstract class AgentYfb : Targetable
 	{	
 		/// <summary>
@@ -49,17 +50,17 @@ namespace TowerDefense.Agents
 		/// <summary>
 		/// Event fired when agent reached its final node
 		/// </summary>
-		public event Action<Node> destinationReached;
+		//public event Action<Node> destinationReached;
 
 		/// <summary>
 		/// Position offset for an applied affect
 		/// </summary>
-		public Vector3 appliedEffectOffset = Vector3.zero;
+		//public Vector3 appliedEffectOffset = Vector3.zero;
 		
 		/// <summary>
 		/// Scale adjustment for an applied affect
 		/// </summary>
-		public float appliedEffectScale = 1;
+		//public float appliedEffectScale = 1;
 
 		/// <summary>
 		/// The NavMeshAgent component attached to this
@@ -94,38 +95,38 @@ namespace TowerDefense.Agents
 		/// </summary>
 		public State state { get; protected set; }
 
-		/// <summary>
-		/// Accessor to <see cref="m_NavMeshAgent"/>
-		/// </summary>
-		public NavMeshAgent navMeshNavMeshAgent
-		{
-			get { return m_NavMeshAgent; }
-			set { m_NavMeshAgent = value; }
-		}
+        /// <summary>
+        /// Accessor to <see cref="m_NavMeshAgent"/>
+        /// </summary>
+        //public NavMeshAgent navMeshNavMeshAgent
+        //{
+        //    get { return m_NavMeshAgent; }
+        //    set { m_NavMeshAgent = value; }
+        //}
 
-		/// <summary>
-		/// The area mask of the attached nav mesh agent
-		/// </summary>
-		public int navMeshMask
+        /// <summary>
+        /// The area mask of the attached nav mesh agent
+        /// </summary>
+        public int navMeshMask
 		{
 			get { return m_NavMeshAgent.areaMask; }
 		}
 
-		/// <summary>
-		/// Gets this agent's original movement speed
-		/// </summary>
-		public float originalMovementSpeed { get; private set; }
+        /// <summary>
+        /// Gets this agent's original movement speed
+        /// </summary>
+        //public float originalMovementSpeed { get; private set; }
 
-		/// <summary>
-		/// Checks if the path is blocked
-		/// </summary>
-		/// <value>
-		/// The status of the agent's path
-		/// </value>
-		//protected virtual bool isPathBlocked
-		//{
-		//	get { return m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathPartial; }
-		//}
+        /// <summary>
+        /// Checks if the path is blocked
+        /// </summary>
+        /// <value>
+        /// The status of the agent's path
+        /// </value>
+        protected virtual bool isPathBlocked
+		{
+			get { return m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathPartial; }
+		}
 
 		/// <summary>
 		/// Is the Agent close enough to its destination?
@@ -168,10 +169,10 @@ namespace TowerDefense.Agents
 		{
 			ResetPositionData();
 			LazyLoad();
-			configuration.SetHealth(configuration.maxHealth);
-			//state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
-
-			m_NavMeshAgent.enabled = true;
+            //configuration.SetHealth(configuration.maxHealth);
+            state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
+			Debug.Log("m_NavMeshAgent--------------------"+ m_NavMeshAgent);
+            m_NavMeshAgent.enabled = true;
 			m_NavMeshAgent.isStopped = false;
 			
 			m_LevelManager.IncrementNumberOfEnemies();
@@ -200,8 +201,8 @@ namespace TowerDefense.Agents
 				{
 					m_NavMeshAgent.isStopped = true;
 				}
-				//HandleDestinationReached();
-				return;
+                //HandleDestinationReached();
+                return;
 			}
 			
 			Debug.Assert(nextNode != m_CurrentNode);
@@ -263,11 +264,13 @@ namespace TowerDefense.Agents
 				    m_CurrentNode.GetNextNode() != null)
 				{
 					// Proceed if we're at our destination
+					Debug.Log("GetNextNode(m_CurrentNode)");
 					GetNextNode(m_CurrentNode);
 				}
 				else
 				{
 					// Otherwise try repath
+					Debug.Log("SetDestination(m_Destination)");
 					m_NavMeshAgent.SetDestination(m_Destination);
 				}
 			}
@@ -291,13 +294,17 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected virtual void LazyLoad()
 		{
+			Debug.Log("LazyLoad is CALLED");
 			if (m_NavMeshAgent == null)
 			{
+				Debug.Log("m_NavMeshAgent is NULL");
 				m_NavMeshAgent = GetComponent<NavMeshAgent>();
-				originalMovementSpeed = m_NavMeshAgent.speed;
+				Debug.Log("m_NavMeshAgent:" + m_NavMeshAgent);
+				//originalMovementSpeed = m_NavMeshAgent.speed;
 			}
 			if (m_LevelManager == null)
 			{
+				Debug.Log("m_LevelManager is NULL");
 				m_LevelManager = LevelManagerYfb.instance;
 			}
 		}
@@ -307,11 +314,11 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected virtual void OnCompletePathUpdate()
 		{
-			//if (isPathBlocked)
-			//{
-			//	state = State.OnPartialPath;
-			//}
-		}
+            if (isPathBlocked)
+            {
+                state = State.OnPartialPath;
+            }
+        }
 
 		/// <summary>
 		/// Peforms the relevant path update
