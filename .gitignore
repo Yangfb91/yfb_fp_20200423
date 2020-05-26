@@ -1,8 +1,13 @@
 
 *.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
 
 Library/ArtifactDB
-Library
+Library/StateCache/
+Library/ScriptAssemblies
+
 *.meta
 *.backup
 ProjectSettings/ProjectVersion.txt
+
