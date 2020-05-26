@@ -1,13 +1,19 @@
-
 *.csproj
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 
-Library/ArtifactDB
+Library/Artifacts/
+Library/ArtifactDB/
 Library/StateCache/
-Library/ScriptAssemblies
+Library/ScriptAssemblies/
 
 *.meta
 *.backup
+*.dll
 ProjectSettings/ProjectVersion.txt
+
+Library/CurrentLayout-default.dwlt
+Library/CurrentMaximizeLayout.dwlt
+Library/expandedItems
+Library/InspectorExpandedItems.asset
 
