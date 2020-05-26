@@ -2,8 +2,6 @@
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 
-Library/Artifacts/
-Library/ArtifactDB/
 Library/StateCache/
 Library/ScriptAssemblies/
 
