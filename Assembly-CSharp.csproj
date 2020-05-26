@@ -360,6 +360,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/杨富斌/unity projects/yfb_fp_20200423/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/杨富斌/unity projects/yfb_fp_20200423/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/杨富斌/unity projects/yfb_fp_20200423/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
