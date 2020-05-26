@@ -5,3 +5,4 @@ Library/ArtifactDB
 Library
 *.meta
 *.backup
+ProjectSettings/ProjectVersion.txt
