@@ -171,7 +171,6 @@ namespace TowerDefense.Agents
 			LazyLoad();
             //configuration.SetHealth(configuration.maxHealth);
             state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
-			Debug.Log("m_NavMeshAgent--------------------"+ m_NavMeshAgent);
             m_NavMeshAgent.enabled = true;
 			m_NavMeshAgent.isStopped = false;
 			
@@ -270,7 +269,6 @@ namespace TowerDefense.Agents
 				else
 				{
 					// Otherwise try repath
-					Debug.Log("SetDestination(m_Destination)");
 					m_NavMeshAgent.SetDestination(m_Destination);
 				}
 			}
@@ -294,17 +292,13 @@ namespace TowerDefense.Agents
 		/// </summary>
 		protected virtual void LazyLoad()
 		{
-			Debug.Log("LazyLoad is CALLED");
 			if (m_NavMeshAgent == null)
 			{
-				Debug.Log("m_NavMeshAgent is NULL");
 				m_NavMeshAgent = GetComponent<NavMeshAgent>();
-				Debug.Log("m_NavMeshAgent:" + m_NavMeshAgent);
 				//originalMovementSpeed = m_NavMeshAgent.speed;
 			}
 			if (m_LevelManager == null)
 			{
-				Debug.Log("m_LevelManager is NULL");
 				m_LevelManager = LevelManagerYfb.instance;
 			}
 		}

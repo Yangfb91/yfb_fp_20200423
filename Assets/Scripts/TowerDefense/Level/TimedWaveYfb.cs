@@ -34,7 +34,6 @@ namespace TowerDefense.Level
 
 			if (spawnInstructions.Count > 0)
 			{
-				Debug.Log("set m_WaveTimer");
 				m_WaveTimer = new Timer(timeToNextWave, SafelyBroadcastWaveCompletedEvent);
 				StartTimer(m_WaveTimer);
 			}
