@@ -96,10 +96,18 @@ namespace TowerDefense.Level
             }
         }
 
+        /// <summary>
+        /// Completes building phase, setting state to spawn enemies
+        /// </summary>
+        public virtual void BuildingCompleted()
+        {
+            ChangeLevelState(LevelState.SpawningEnemies);
+        }
+
         protected override void Awake()
         {
             base.Awake();
-            //waveManager = GetComponent<WaveManagerYfb>();
+            waveManager = GetComponent<WaveManagerYfb>();
             //waveManager.spawningCompleted += OnSpawningCompleted;
 
             levelState = LevelState.Intro;

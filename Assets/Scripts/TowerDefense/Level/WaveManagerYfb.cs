@@ -26,48 +26,48 @@ namespace TowerDefense.Level
 		[Tooltip("Specify this list in order")]
 		public List<WaveYfb> waves = new List<WaveYfb>();
 
-		/// <summary>
-		/// The current wave number
-		/// </summary>
-		//public int waveNumber
-		//{
-		//	get { return m_CurrentIndex + 1; }
-		//}
+        /// <summary>
+        /// The current wave number
+        /// </summary>
+        public int waveNumber
+        {
+            get { return m_CurrentIndex + 1; }
+        }
 
-		/// <summary>
-		/// The total number of waves
-		/// </summary>
-		//public int totalWaves
-		//{
-		//	get { return waves.Count; }
-		//}
+        /// <summary>
+        /// The total number of waves
+        /// </summary>
+        public int totalWaves
+        {
+            get { return waves.Count; }
+        }
 
-		//public float waveProgress
-		//{
-		//	get
-		//	{
-		//		if (waves == null || waves.Count <= m_CurrentIndex)
-		//		{
-		//			return 0;
-		//		}
-		//		return waves[m_CurrentIndex].progress;
-		//	}
-		//}
+        //public float waveProgress
+        //{
+        //	get
+        //	{
+        //		if (waves == null || waves.Count <= m_CurrentIndex)
+        //		{
+        //			return 0;
+        //		}
+        //		return waves[m_CurrentIndex].progress;
+        //	}
+        //}
 
-		/// <summary>
-		/// Called when a wave begins
-		/// </summary>
-		//public event Action waveChanged;
+        /// <summary>
+        /// Called when a wave begins
+        /// </summary>
+        public event Action waveChanged;
 
-		/// <summary>
-		/// Called when all waves are finished
-		/// </summary>
-		//public event Action spawningCompleted;
+        /// <summary>
+        /// Called when all waves are finished
+        /// </summary>
+        //public event Action spawningCompleted;
 
-		/// <summary>
-		/// Starts the waves
-		/// </summary>
-		public virtual void StartWaves()
+        /// <summary>
+        /// Starts the waves
+        /// </summary>
+        public virtual void StartWaves()
 		{
 			if (waves.Count > 0)
 			{
@@ -115,11 +115,11 @@ namespace TowerDefense.Level
 			WaveYfb wave = waves[m_CurrentIndex];
 			//wave.waveCompleted += NextWave;
 			wave.Init();
-			//if (waveChanged != null)
-			//{
-			//	waveChanged();
-			//}
-		}
+            if (waveChanged != null)
+            {
+                waveChanged();
+            }
+        }
 
 		/// <summary>
 		/// Calls spawningCompleted event

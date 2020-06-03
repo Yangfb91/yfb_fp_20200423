@@ -72,5 +72,16 @@ namespace TowerDefense.UI.HUD
 			}
 		}
 
+		/// <summary>
+		/// Called by start wave button in scene
+		/// </summary>
+		public void StartWaveButtonPressed()
+		{
+			if (LevelManagerYfb.instanceExists)
+			{
+				LevelManagerYfb.instance.BuildingCompleted();
+			}
+		}
+
 	}
 }

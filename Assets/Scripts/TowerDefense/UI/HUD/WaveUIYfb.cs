@@ -17,12 +17,12 @@ namespace TowerDefense.UI.HUD
 
 		public Image waveFillImage;
 
-		/// <summary>
-		/// The total amount of waves for this level
-		/// </summary>
-		//protected int m_TotalWaves;
+        /// <summary>
+        /// The total amount of waves for this level
+        /// </summary>
+        protected int m_TotalWaves;
 
-		protected Canvas m_Canvas;
+        protected Canvas m_Canvas;
 
 		/// <summary>
 		/// cache the total amount of waves
@@ -33,9 +33,9 @@ namespace TowerDefense.UI.HUD
 		{
 			m_Canvas = GetComponent<Canvas>();
 			m_Canvas.enabled = false;
-			//m_TotalWaves = LevelManagerYfb.instance.waveManager.totalWaves;
-			//LevelManagerYfb.instance.waveManager.waveChanged += UpdateDisplay;
-		}
+            m_TotalWaves = LevelManagerYfb.instance.waveManager.totalWaves;
+            LevelManagerYfb.instance.waveManager.waveChanged += UpdateDisplay;
+        }
 
 		/// <summary>
 		/// Write the current wave amount to the display
@@ -43,10 +43,10 @@ namespace TowerDefense.UI.HUD
 		protected void UpdateDisplay()
 		{
 			m_Canvas.enabled = true;
-			//int currentWave = LevelManagerYfb.instance.waveManager.waveNumber;
-			//string output = string.Format("{0}/{1}", currentWave, m_TotalWaves);
-			//display.text = output;
-		}
+            int currentWave = LevelManagerYfb.instance.waveManager.waveNumber;
+            string output = string.Format("{0}/{1}", currentWave, m_TotalWaves);
+            display.text = output;
+        }
 
 		protected virtual void Update()
 		{
