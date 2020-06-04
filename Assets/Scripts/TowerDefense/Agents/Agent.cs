@@ -200,6 +200,7 @@ namespace TowerDefense.Agents
 				{
 					m_NavMeshAgent.isStopped = true;
 				}
+				Debug.Log("HandleDestinationReached()");
 				HandleDestinationReached();
 				return;
 			}

@@ -19405,8 +19405,6 @@ MonoBehaviour:
       unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
         type: 2}
   targetTransform: {fileID: 4405945576505646}
-  appliedEffectOffset: {x: 0, y: 0.5, z: 0}
-  appliedEffectScale: 1
 --- !u!114 &114045684039755250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19656,7 +19654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaec1db9a84ba5a49bb8fba82d654650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeBaseAttackChargeTime: 1
+  homeBaseAttackChargeTime: 0.5
 --- !u!114 &114479021208482228
 MonoBehaviour:
   m_ObjectHideFlags: 0

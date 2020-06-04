@@ -47,30 +47,30 @@ namespace TowerDefense.Agents
 			PathComplete
 		}
 
-		/// <summary>
-		/// Event fired when agent reached its final node
-		/// </summary>
-		//public event Action<Node> destinationReached;
+        /// <summary>
+        /// Event fired when agent reached its final node
+        /// </summary>
+        public event Action<NodeYfb> destinationReached;
 
-		/// <summary>
-		/// Position offset for an applied affect
-		/// </summary>
-		//public Vector3 appliedEffectOffset = Vector3.zero;
-		
-		/// <summary>
-		/// Scale adjustment for an applied affect
-		/// </summary>
-		//public float appliedEffectScale = 1;
+        /// <summary>
+        /// Position offset for an applied affect
+        /// </summary>
+        //public Vector3 appliedEffectOffset = Vector3.zero;
 
-		/// <summary>
-		/// The NavMeshAgent component attached to this
-		/// </summary>
-		protected NavMeshAgent m_NavMeshAgent;
+        /// <summary>
+        /// Scale adjustment for an applied affect
+        /// </summary>
+        //public float appliedEffectScale = 1;
+
+        /// <summary>
+        /// The NavMeshAgent component attached to this
+        /// </summary>
+        protected NavMeshAgent m_NavMeshAgent;
 
 		/// <summary>
 		/// The Current node that the agent must navigate to
 		/// </summary>
-		protected Node m_CurrentNode;
+		protected NodeYfb m_CurrentNode;
 
 		/// <summary>
 		/// Reference to the level manager
@@ -98,11 +98,11 @@ namespace TowerDefense.Agents
         /// <summary>
         /// Accessor to <see cref="m_NavMeshAgent"/>
         /// </summary>
-        //public NavMeshAgent navMeshNavMeshAgent
-        //{
-        //    get { return m_NavMeshAgent; }
-        //    set { m_NavMeshAgent = value; }
-        //}
+        public NavMeshAgent navMeshNavMeshAgent
+        {
+            get { return m_NavMeshAgent; }
+            set { m_NavMeshAgent = value; }
+        }
 
         /// <summary>
         /// The area mask of the attached nav mesh agent
@@ -128,19 +128,19 @@ namespace TowerDefense.Agents
 			get { return m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathPartial; }
 		}
 
-		/// <summary>
-		/// Is the Agent close enough to its destination?
-		/// </summary>
-		//protected virtual bool isAtDestination
-		//{
-		//	get { return navMeshNavMeshAgent.remainingDistance <= navMeshNavMeshAgent.stoppingDistance; }
-		//}
+        /// <summary>
+        /// Is the Agent close enough to its destination?
+        /// </summary>
+        protected virtual bool isAtDestination
+        {
+            get { return navMeshNavMeshAgent.remainingDistance <= navMeshNavMeshAgent.stoppingDistance; }
+        }
 
-		/// <summary>
-		/// Sets the node to navigate to
-		/// </summary>
-		/// <param name="node">The node that the agent will navigate to</param>
-		public virtual void SetNode(Node node)
+        /// <summary>
+        /// Sets the node to navigate to
+        /// </summary>
+        /// <param name="node">The node that the agent will navigate to</param>
+        public virtual void SetNode(NodeYfb node)
 		{
 			m_CurrentNode = node;
 		}
@@ -158,7 +158,6 @@ namespace TowerDefense.Agents
 				m_NavMeshAgent.isStopped = true;
 			}
 			m_NavMeshAgent.enabled = false;
-
 			Poolable.TryPool(gameObject);
 		}
 
@@ -180,7 +179,7 @@ namespace TowerDefense.Agents
 		/// <summary>
 		/// Finds the next node in the path
 		/// </summary>
-		public virtual void GetNextNode(Node currentlyEnteredNode)
+		public virtual void GetNextNode(NodeYfb currentlyEnteredNode)
 		{
 			// Don't do anything if the calling node is the same as the m_CurrentNode
 			if (m_CurrentNode != currentlyEnteredNode)
@@ -193,14 +192,14 @@ namespace TowerDefense.Agents
 				return;
 			}
 
-			Node nextNode = m_CurrentNode.GetNextNode();
+			NodeYfb nextNode = m_CurrentNode.GetNextNode();
 			if (nextNode == null)
 			{
 				if (m_NavMeshAgent.enabled)
 				{
 					m_NavMeshAgent.isStopped = true;
 				}
-                //HandleDestinationReached();
+				HandleDestinationReached();
                 return;
 			}
 			
@@ -210,7 +209,7 @@ namespace TowerDefense.Agents
 		}
 
 		/// <summary>
-		/// Moves the agent to a position in the <see cref="Agent.m_CurrentNode" />
+		/// Moves the agent to a position in the <see cref="AgentYfb.m_CurrentNode" />
 		/// </summary>
 		public virtual void MoveToNode()
 		{
@@ -220,22 +219,22 @@ namespace TowerDefense.Agents
 			NavigateTo(m_Destination);
 		}
 
-		/// <summary>
-		/// The logic for what happens when the destination is reached
-		/// </summary>
-		//public virtual void HandleDestinationReached()
-		//{
-		//	state = State.PathComplete;
-		//	if (destinationReached != null)
-		//	{
-		//		destinationReached(m_CurrentNode);
-		//	} 
-		//}
-		
-		/// <summary>
-		/// Lazy Load, if necesaary and ensure the NavMeshAgent is disabled
-		/// </summary>
-		protected override void Awake()
+        /// <summary>
+        /// The logic for what happens when the destination is reached
+        /// </summary>
+        public virtual void HandleDestinationReached()
+        {
+            state = State.PathComplete;
+            if (destinationReached != null)
+            {
+                destinationReached(m_CurrentNode);
+            }
+        }
+
+        /// <summary>
+        /// Lazy Load, if necesaary and ensure the NavMeshAgent is disabled
+        /// </summary>
+        protected override void Awake()
 		{
 			base.Awake();
 			LazyLoad();

@@ -108,7 +108,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		/// <param name="agentConfig">The agent to spawn</param>
 		/// <param name="node">The starting node that the agent uses</param>
-		protected virtual void SpawnAgent(AgentConfigurationYfb agentConfig, Node node)
+		protected virtual void SpawnAgent(AgentConfigurationYfb agentConfig, NodeYfb node)
 		{
 			Vector3 spawnPosition = node.GetRandomPointInNodeArea();
 

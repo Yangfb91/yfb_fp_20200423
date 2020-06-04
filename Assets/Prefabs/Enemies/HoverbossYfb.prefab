@@ -9570,7 +9570,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 1.2
+  m_Speed: 6
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -9850,6 +9850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaec1db9a84ba5a49bb8fba82d654650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homeBaseAttackChargeTime: 0.5
 --- !u!114 &114421131528630028
 MonoBehaviour:
   m_ObjectHideFlags: 0
