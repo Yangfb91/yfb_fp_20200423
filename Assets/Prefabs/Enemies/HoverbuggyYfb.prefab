@@ -4954,7 +4954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440fde571ec4db4a719f37df8e972f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableBehaviour: {fileID: 0}
+  damageableBehaviour: {fileID: 8474962854079384702}
   healthBar: {fileID: 4213428961054356}
   backgroundBar: {fileID: 4170109201421712}
   showWhenFull: 0

@@ -43662,7 +43662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440fde571ec4db4a719f37df8e972f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableBehaviour: {fileID: 0}
+  damageableBehaviour: {fileID: 1130754230778109225}
   healthBar: {fileID: 4017174291191606}
   backgroundBar: {fileID: 4259901130106884}
   showWhenFull: 0

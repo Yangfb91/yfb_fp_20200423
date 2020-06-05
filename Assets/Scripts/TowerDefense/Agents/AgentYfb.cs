@@ -168,7 +168,7 @@ namespace TowerDefense.Agents
 		{
 			ResetPositionData();
 			LazyLoad();
-            //configuration.SetHealth(configuration.maxHealth);
+            configuration.SetHealth(configuration.maxHealth);
             state = isPathBlocked ? State.OnPartialPath : State.OnCompletePath;
             m_NavMeshAgent.enabled = true;
 			m_NavMeshAgent.isStopped = false;

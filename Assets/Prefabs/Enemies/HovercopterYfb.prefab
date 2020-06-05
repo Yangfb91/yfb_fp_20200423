@@ -4894,7 +4894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440fde571ec4db4a719f37df8e972f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableBehaviour: {fileID: 0}
+  damageableBehaviour: {fileID: 4947223728681267550}
   healthBar: {fileID: 4621857411811086}
   backgroundBar: {fileID: 4766542036360984}
   showWhenFull: 0
@@ -19230,8 +19230,6 @@ MonoBehaviour:
       unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
         type: 2}
   targetTransform: {fileID: 4483464802271772}
-  appliedEffectOffset: {x: 0, y: 1.5, z: 0}
-  appliedEffectScale: 1
 --- !u!114 &114948497807355484
 MonoBehaviour:
   m_ObjectHideFlags: 0

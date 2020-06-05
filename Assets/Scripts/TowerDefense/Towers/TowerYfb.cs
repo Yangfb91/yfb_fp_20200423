@@ -260,45 +260,45 @@ namespace TowerDefense.Towers
 			// initialize TowerLevel
 			currentTowerLevel.Initialize(this, enemyLayerMask, configuration.alignmentProvider);
 
-			//// health data
-			//ScaleHealth();
+            //// health data
+            ScaleHealth();
 
-			//// disable affectors
-			//LevelState levelState = LevelManager.instance.levelState;
-			//bool initialise = levelState == LevelState.AllEnemiesSpawned
-			//	|| levelState == LevelState.SpawningEnemies;
+            //// disable affectors
+            //LevelState levelState = LevelManager.instance.levelState;
+            //bool initialise = levelState == LevelState.AllEnemiesSpawned
+            //	|| levelState == LevelState.SpawningEnemies;
 
-			//currentTowerLevel.SetAffectorState(initialise);
-		}
+            //currentTowerLevel.SetAffectorState(initialise);
+        }
 
-		/// <summary>
-		/// Scales the health based on the previous health
-		/// Requires override when the rules for scaling health on upgrade changes
-		/// </summary>
-		//protected virtual void ScaleHealth()
-		//{
-		//	configuration.SetMaxHealth(currentTowerLevel.maxHealth);
-			
-		//	if (currentLevel == 0)
-		//	{
-		//		configuration.SetHealth(currentTowerLevel.maxHealth);
-		//	}
-		//	else
-		//	{
-		//		int currentHealth = Mathf.FloorToInt(
-		//			configuration.normalisedHealth * currentTowerLevel.maxHealth);
-		//		configuration.SetHealth(currentHealth);
-		//	}
-		//}
+        /// <summary>
+        /// Scales the health based on the previous health
+        /// Requires override when the rules for scaling health on upgrade changes
+        /// </summary>
+        protected virtual void ScaleHealth()
+        {
+            configuration.SetMaxHealth(currentTowerLevel.maxHealth);
 
-		/// <summary>
-		/// Initialises affectors based on the level state
-		/// </summary>
-		//protected virtual void OnLevelStateChanged(LevelState previous, LevelState current)
-		//{
-		//	bool initialise = current == LevelState.AllEnemiesSpawned 
-		//		|| current == LevelState.SpawningEnemies;
-		//	currentTowerLevel.SetAffectorState(initialise);
-		//}
-	}
+            if (currentLevel == 0)
+            {
+                configuration.SetHealth(currentTowerLevel.maxHealth);
+            }
+            else
+            {
+                int currentHealth = Mathf.FloorToInt(
+                    configuration.normalisedHealth * currentTowerLevel.maxHealth);
+                configuration.SetHealth(currentHealth);
+            }
+        }
+
+        /// <summary>
+        /// Initialises affectors based on the level state
+        /// </summary>
+        //protected virtual void OnLevelStateChanged(LevelState previous, LevelState current)
+        //{
+        //	bool initialise = current == LevelState.AllEnemiesSpawned 
+        //		|| current == LevelState.SpawningEnemies;
+        //	currentTowerLevel.SetAffectorState(initialise);
+        //}
+    }
 }
