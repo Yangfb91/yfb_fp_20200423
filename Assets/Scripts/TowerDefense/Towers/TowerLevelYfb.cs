@@ -33,30 +33,30 @@ namespace TowerDefense.Towers
 		/// </summary>
 		protected TowerYfb m_ParentTower;
 
-		/// <summary>
-		/// The list of effects attached to the tower
-		/// </summary>
-		//Affector[] m_Affectors;
+        /// <summary>
+        /// The list of effects attached to the tower
+        /// </summary>
+        Affector[] m_Affectors;
 
-		/// <summary>
-		/// Gets the list of effects attached to the tower
-		/// </summary>
-		//protected Affector[] Affectors
-		//{
-		//	get
-		//	{
-		//		if (m_Affectors == null)
-		//		{
-		//			m_Affectors = GetComponentsInChildren<Affector>();
-		//		}
-		//		return m_Affectors;
-		//	}
-		//}
+        /// <summary>
+        /// Gets the list of effects attached to the tower
+        /// </summary>
+        protected Affector[] Affectors
+        {
+            get
+            {
+                if (m_Affectors == null)
+                {
+                    m_Affectors = GetComponentsInChildren<Affector>();
+                }
+                return m_Affectors;
+            }
+        }
 
-		/// <summary>
-		/// The physics layer mask that the tower searches on
-		/// </summary>
-		public LayerMask mask { get; protected set; }
+        /// <summary>
+        /// The physics layer mask that the tower searches on
+        /// </summary>
+        public LayerMask mask { get; protected set; }
 
 		/// <summary>
 		/// Gets the cost value
@@ -114,85 +114,85 @@ namespace TowerDefense.Towers
 									   IAlignmentProvider alignment)
 		{
 			mask = enemyMask;
-			
-			//foreach (Affector effect in Affectors)
-			//{
-			//	effect.Initialize(alignment, mask);
-			//}
-			m_ParentTower = tower;
+
+            foreach (Affector effect in Affectors)
+            {
+                effect.Initialize(alignment, mask);
+            }
+            m_ParentTower = tower;
 		}
 
-		/// <summary>
-		/// A method for activating or deactivating the attached <see cref="Affectors"/>
-		/// </summary>
-		//public void SetAffectorState(bool state)
-		//{
-		//	foreach (Affector affector in Affectors)
-		//	{
-		//		if (affector != null)
-		//		{
-		//			affector.enabled = state;
-		//		}
-		//	}
-		//}
+        /// <summary>
+        /// A method for activating or deactivating the attached <see cref="Affectors"/>
+        /// </summary>
+        public void SetAffectorState(bool state)
+        {
+            foreach (Affector affector in Affectors)
+            {
+                if (affector != null)
+                {
+                    affector.enabled = state;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Returns a list of affectors that implement ITowerRadiusVisualizer
-		/// </summary>
-		/// <returns>ITowerRadiusVisualizers of tower</returns>
-		//public List<ITowerRadiusProvider> GetRadiusVisualizers()
-		//{
-		//	List<ITowerRadiusProvider> visualizers = new List<ITowerRadiusProvider>();
-		//	foreach (Affector affector in Affectors)
-		//	{
-		//		var visualizer = affector as ITowerRadiusProvider;
-		//		if (visualizer != null)
-		//		{
-		//			visualizers.Add(visualizer);
-		//		}
-		//	}
-		//	return visualizers;
-		//}
+        /// <summary>
+        /// Returns a list of affectors that implement ITowerRadiusVisualizer
+        /// </summary>
+        /// <returns>ITowerRadiusVisualizers of tower</returns>
+        //public List<ITowerRadiusProvider> GetRadiusVisualizers()
+        //{
+        //	List<ITowerRadiusProvider> visualizers = new List<ITowerRadiusProvider>();
+        //	foreach (Affector affector in Affectors)
+        //	{
+        //		var visualizer = affector as ITowerRadiusProvider;
+        //		if (visualizer != null)
+        //		{
+        //			visualizers.Add(visualizer);
+        //		}
+        //	}
+        //	return visualizers;
+        //}
 
-		/// <summary>
-		/// Returns the dps of the tower
-		/// </summary>
-		/// <returns>The dps of the tower</returns>
-		//public float GetTowerDps()
-		//{
-		//	float dps = 0;
-		//	foreach (Affector affector in Affectors)
-		//	{
-		//		var attack = affector as AttackAffector;
-		//		if (attack != null && attack.damagerProjectile != null)
-		//		{
-		//			dps += attack.GetProjectileDamage() * attack.fireRate;
-		//		}
-		//	}
-		//	return dps;
-		//}
+        /// <summary>
+        /// Returns the dps of the tower
+        /// </summary>
+        /// <returns>The dps of the tower</returns>
+        //public float GetTowerDps()
+        //{
+        //	float dps = 0;
+        //	foreach (Affector affector in Affectors)
+        //	{
+        //		var attack = affector as AttackAffector;
+        //		if (attack != null && attack.damagerProjectile != null)
+        //		{
+        //			dps += attack.GetProjectileDamage() * attack.fireRate;
+        //		}
+        //	}
+        //	return dps;
+        //}
 
-		//public void Kill()
-		//{
-		//	m_ParentTower.KillTower();
-		//}
+        //public void Kill()
+        //{
+        //	m_ParentTower.KillTower();
+        //}
 
-		//public void OnBeforeSerialize()
-		//{
-		//}
+        public void OnBeforeSerialize()
+        {
+        }
 
-		//public void OnAfterDeserialize()
-		//{
-		//	// Setting this member to null is required 
-		//	// because we are setting this value on a prefab which will 
-		//	// persists post run in editor, so we null this member to ensure it is repopulated every run
-		//	m_Affectors = null;
-		//}
+        public void OnAfterDeserialize()
+        {
+            // Setting this member to null is required 
+            // because we are setting this value on a prefab which will 
+            // persists post run in editor, so we null this member to ensure it is repopulated every run
+            m_Affectors = null;
+        }
 
-		/// <summary>
-		/// Insntiate the build particle effect object
-		/// </summary>
-		void Start()
+        /// <summary>
+        /// Insntiate the build particle effect object
+        /// </summary>
+        void Start()
 		{
 			if (buildEffectPrefab != null)
 			{

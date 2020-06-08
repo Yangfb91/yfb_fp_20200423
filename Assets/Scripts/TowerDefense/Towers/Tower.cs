@@ -105,11 +105,11 @@ namespace TowerDefense.Towers
 			}
 
 			SetLevel(0);
-			//if (LevelManager.instanceExists)
-			//{
-			//	LevelManager.instance.levelStateChanged += OnLevelStateChanged;
-			//}
-		}
+            if (LevelManager.instanceExists)
+            {
+                LevelManager.instance.levelStateChanged += OnLevelStateChanged;
+            }
+        }
 
 		/// <summary>
 		/// Provides information on the cost to upgrade
@@ -262,13 +262,13 @@ namespace TowerDefense.Towers
 			// health data
 			ScaleHealth();
 
-			//// disable affectors
-			//LevelState levelState = LevelManager.instance.levelState;
-			//bool initialise = levelState == LevelState.AllEnemiesSpawned
-			//	|| levelState == LevelState.SpawningEnemies;
+            // disable affectors
+            LevelState levelState = LevelManager.instance.levelState;
+            bool initialise = levelState == LevelState.AllEnemiesSpawned
+                || levelState == LevelState.SpawningEnemies;
 
-			//currentTowerLevel.SetAffectorState(initialise);
-		}
+            currentTowerLevel.SetAffectorState(initialise);
+        }
 
 		/// <summary>
 		/// Scales the health based on the previous health

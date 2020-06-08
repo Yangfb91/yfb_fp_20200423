@@ -105,11 +105,11 @@ namespace TowerDefense.Towers
 			}
 
 			SetLevel(0);
-			//if (LevelManager.instanceExists)
-			//{
-			//	LevelManager.instance.levelStateChanged += OnLevelStateChanged;
-			//}
-		}
+            if (LevelManagerYfb.instanceExists)
+            {
+                LevelManagerYfb.instance.levelStateChanged += OnLevelStateChanged;
+            }
+        }
 
 		/// <summary>
 		/// Provides information on the cost to upgrade
@@ -264,11 +264,11 @@ namespace TowerDefense.Towers
             ScaleHealth();
 
             //// disable affectors
-            //LevelState levelState = LevelManager.instance.levelState;
-            //bool initialise = levelState == LevelState.AllEnemiesSpawned
-            //	|| levelState == LevelState.SpawningEnemies;
+            LevelState levelState = LevelManagerYfb.instance.levelState;
+            bool initialise = levelState == LevelState.AllEnemiesSpawned
+                || levelState == LevelState.SpawningEnemies;
 
-            //currentTowerLevel.SetAffectorState(initialise);
+            currentTowerLevel.SetAffectorState(initialise);
         }
 
         /// <summary>
@@ -294,11 +294,12 @@ namespace TowerDefense.Towers
         /// <summary>
         /// Initialises affectors based on the level state
         /// </summary>
-        //protected virtual void OnLevelStateChanged(LevelState previous, LevelState current)
-        //{
-        //	bool initialise = current == LevelState.AllEnemiesSpawned 
-        //		|| current == LevelState.SpawningEnemies;
-        //	currentTowerLevel.SetAffectorState(initialise);
-        //}
+        protected virtual void OnLevelStateChanged(LevelState previous, LevelState current)
+        {
+            bool initialise = current == LevelState.AllEnemiesSpawned
+                || current == LevelState.SpawningEnemies;
+
+            currentTowerLevel.SetAffectorState(initialise);
+        }
     }
 }
